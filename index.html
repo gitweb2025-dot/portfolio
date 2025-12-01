@@ -482,20 +482,20 @@
     </section>
 
     <!-- Services -->
-    <section
-      class="px-3 py-6 md:py-12 overflow-hidden bg-linear-to-r from-[#faf7f2] via-[#f8f7ff] to-[#eef1ff]"
-    >
+    <section class="px-3 py-6 md:py-12 overflow-hidden">
       <div class="mx-auto">
         <!-- Heading -->
         <div data-aos="fade-up" data-aos-delay="100">
           <p class="text-sm text-primary font-semibold">Services</p>
-          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             How can <span class="text-[#ff6f61]">I help you</span>
           </h1>
         </div>
 
         <!-- Services Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12"
+        >
           <!-- CARD 1 -->
           <div
             class="relative bg-white rounded-3xl shadow-xl p-8 pt-14 transition"
@@ -655,10 +655,8 @@
     </section>
 
     <!-- Blog Posts -->
-    <section
-      class="px-3 py-6 md:py-12 overflow-hidden bg-linear-to-br from-[#faf7f2] via-white to-[#eef1ff]"
-    >
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
+    <section class="px-3 py-6 md:py-12 overflow-hidden">
+      <div class="mx-auto grid md:grid-cols-2 gap-10">
         <!-- LEFT TEXT CONTENT -->
         <div data-aos="fade-right" data-aos-delay="150">
           <p class="text-sm text-primary font-semibold flex items-center gap-2">
@@ -794,7 +792,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="px-3 py-6 md:py-12 overflow-hidden bg-[#f5f7ff]">
+    <section class="px-3 py-6 md:py-12 overflow-hidden">
       <!-- Heading -->
       <div
         data-aos="zoom-in"
@@ -823,14 +821,14 @@
             id="prevBtn"
             class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer"
           >
-            <i class="fa-solid fa-arrow-left"></i>
+            <i class="fa-solid fa-angle-left"></i>
           </button>
 
           <button
             id="nextBtn"
             class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer"
           >
-            <i class="fa-solid fa-arrow-right"></i>
+            <i class="fa-solid fa-angle-right"></i>
           </button>
         </div>
         <!-- Track (flex) -->
@@ -926,10 +924,8 @@
     </section>
 
     <!-- Happy Client -->
-    <section id="work" class="bg-[#f5f7fb] py-20 scroll-mt-20 overflow-hidden">
-      <div
-        class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-14 items-center"
-      >
+    <section id="work" class="px-3 py-8 md:py-20 scroll-mt-20 overflow-hidden">
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
         <!-- LEFT CONTENT -->
         <div>
           <h4
@@ -944,7 +940,7 @@
           <h2
             data-aos="zoom-in-right"
             data-aos-delay="110"
-            class="mt-4 font-extrabold text-4xl md:text-5xl leading-tight text-[#0b0f2f]"
+            class="mt-4 font-extrabold text-2xl sm:text-4xl md:text-5xl leading-tight text-[#0b0f2f]"
           >
             I work with over
             <span class="text-[#ff7e73]">150+<br />happy clients</span>
@@ -1056,12 +1052,35 @@
       </div>
     </section>
 
+    <!-- Have a Project?  -->
+    <section class="px-3 py-12 bg-primary/20 overflow-hidden w-full">
+      <div class="w-full flex flex-wrap items-center justify-between gap-10">
+        <div class="max-w-2xl w-full">
+          <h2 class="text-2xl sm:text-4xl font-bold">Have a Project?</h2>
+
+          <p class="text-gray-600 mt-5 text-lg md:text-xl">
+            I’m always open to collaborating on exciting ideas and creative
+            projects. Let’s build something amazing together.
+          </p>
+        </div>
+
+        <div class="">
+          <a
+            href="./contact.html"
+            class="bg-primary/80 text-white font-semibold text-lg px-10 py-4 rounded-full shadow-lg transition-all duration-300 hover:bg-primary hover:shadow-xl hover:scale-[1.03]"
+          >
+            Let’s Talk
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-white mt-10 px-3 overflow-hidden">
       <div class="mx-auto text-center">
         <!-- Name -->
-        <h2 class="text-3xl font-serif italic text-gray-900">
-          Mary Smith, web designer
+        <h2 class="text-2xl md:text-3xl font-serif italic text-gray-900">
+          John, web designer
         </h2>
 
         <!-- Tagline -->
@@ -1134,8 +1153,10 @@
         <p class="text-gray-600 text-sm py-8">Privacy & Legal</p>
 
         <!-- Copyright -->
-        <p class="text-gray-500 text-sm py-4 border-t border-gray-400">
-          © <span id="year"></span> Mary Smith. All rights reserved.
+        <p
+          class="text-gray-500 text-sm md:text-lg py-4 border-t border-gray-400"
+        >
+          © <span id="year"></span> John. All rights reserved.
         </p>
       </div>
     </footer>
