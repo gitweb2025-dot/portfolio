@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+
+    <!-- meta tags -->
+    <meta name="title" content="Portfolio | Developer, Designer, Creator" />
+    <meta
+      name="description"
+      content="Personal Portfolio, a passionate developer creating modern web experiences. Explore my projects, skills, services, and ways to work together."
+    />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfolio" />
+    <meta
+      property="og:description"
+      content="Welcome to my personal portfolio! I build modern, fast, and user-friendly digital experiences."
+    />
+
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Aos Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS  -->
+    <link rel="stylesheet" href="../src/output.css" />
+
+    <!-- Navbar -->
+    <style>
+      body {
+        font-family: "EB Garamond", serif;
+        overflow-x: hidden;
+      }
+
+      /* Hamburger animation */
+      .hamburger span {
+        display: block;
+        width: 1.5rem;
+        height: 0.125rem;
+        margin: 0.4rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: currentColor;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mobile menu slide + fade */
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        /* height: 100vh; */
+        transform: translateX(-100%);
+        /* overflow: hidden; */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        /* max-height: 1000px; */
+        /* enough for nav links */
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+
+    <style>
+      .skill-bar {
+        width: 0%;
+        transition: width 1.8s ease;
+      }
+    </style>
+  </head>
+
+  <body class="antialiased bg-white text-black font-primary">
+    <!-- Navbar  -->
+    <header class="sticky top-0 z-40 w-full mx-auto">
+      <div
+        class="flex items-center justify-between px-3 h-16 bg-white shadow-md backdrop-blur-2xl"
+      >
+        <!-- Logo -->
+        <a class="" href="./index.html">
+          <img class="h-8" src="../assets/logo.webp" alt="logo" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-5 text-sm font-medium"
+        >
+          <!-- Home with Dropdown -->
+          <div class="relative">
+            <!-- Parent Button -->
+            <button
+              class="relative text-primary inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+            >
+              <a href="./index.html">Home</a>
+              <i id="homeToggle" class="fa-solid fa-caret-down"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="homeMenu"
+              class="absolute hidden bg-white text-black backdrop-blur-2xl shadow-lg mt-2 rounded w-40 z-40"
+            >
+              <li>
+                <a href="../index.html" class="block px-4 py-2"> Home 1 </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <a
+            href="./about.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+
+          <!-- Services -->
+          <a
+            href="./service.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Services
+          </a>
+          <!-- Blogs -->
+          <a
+            href="./blog.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blogs
+          </a>
+          <!-- Contact -->
+          <a
+            href="./contact.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
+          <!-- Dashboard -->
+          <a
+            href="./dashboard.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- login -->
+        <div class="flex text-sm gap-4 font-medium">
+          <div class="relative items-center gap-6 lg:flex hidden">
+            <a
+              class="md:flex items-center gap-2 rounded-full px-6 py-2 text-white bg-primary text-sm transform hover:scale-95 transition duration-200 ease-out hidden"
+              href="./signin.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger"
+            class="hamburger cursor-pointer lg:hidden focus:outline-none"
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobileMenu" class="mobile-menu h-screen lg:hidden shadow-md">
+        <ul
+          class="flex flex-col space-y-4 p-3 text-sm font-medium h-screen md:w-1/2 bg-white backdrop-blur-2xl"
+        >
+          <!-- Home dropDown  -->
+          <div class="relative">
+            <button
+              class="flex items-center text-primary gap-1 w-full text-left lg:hidden"
+            >
+              <a href="./index.html">Home</a>
+              <i
+                id="mobileToggle"
+                class="fa-solid fa-caret-down cursor-pointer"
+              ></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="mobileLink"
+              class="hidden bg-white text-black mt-2 rounded w-full md:absolute"
+            >
+              <li>
+                <a href="../index.html" class="block px-2 py-2"> Home 1 </a>
+              </li>
+            </ul>
+          </div>
+          <!-- About -->
+          <li>
+            <a href="./about.html" class="nav-link block">About</a>
+          </li>
+          <!-- Services -->
+          <li>
+            <a href="./service.html" class="nav-link block">Services</a>
+          </li>
+          <!-- Blogs -->
+          <li>
+            <a href="./blog.html" class="nav-link block">Blogs</a>
+          </li>
+          <!-- Contact -->
+          <li>
+            <a href="./contact.html" class="nav-link block">Contact</a>
+          </li>
+          <!-- Dashboard -->
+          <li>
+            <a href="./dashboard.html" class="nav-link block">Dashboard</a>
+          </li>
+          <!-- login  -->
+          <li>
+            <a href="./signin.html" class="flex items-center gap-2 nav-link"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown script  -->
+      <script>
+        const homeToggle = document.getElementById("homeToggle");
+        const homeMenu = document.getElementById("homeMenu");
+
+        homeToggle.addEventListener("click", () => {
+          homeMenu.classList.toggle("hidden");
+        });
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileLink = document.getElementById("mobileLink");
+
+        // Home dropdown toggle (mobile only)
+        mobileToggle.addEventListener("click", () => {
+          mobileLink.classList.toggle("hidden");
+        });
+
+        // Optional: close menu if clicked outside
+        window.addEventListener("click", (e) => {
+          if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+            homeMenu.classList.add("hidden");
+          }
+        });
+      </script>
+    </header>
+
+    <!-- home -->
+    <main class="w-full px-3 py-10 flex items-center overflow-hidden">
+      <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 items-center">
+        <!-- RIGHT IMAGE -->
+        <div
+          data-aos="fade-right"
+          data-aos-delay="70"
+          class="flex justify-center md:justify-end shadow-2xl rounded-2xl"
+        >
+          <img
+            src="../assets/profile1.webp"
+            class="w-full max-w-xl lg:h-[500px] rounded-2xl object-contain"
+            alt="Portfolio Person"
+          />
+        </div>
+
+        <!-- LEFT CONTENT -->
+        <div class="space-y-6">
+          <p
+            data-aos="zoom-in-right"
+            data-aos-delay="70"
+            class="tracking-[0.3em] text-sm text-gray-600"
+          >
+            WELCOME TO MY WEBSITE
+          </p>
+
+          <h1
+            data-aos="zoom-in-right"
+            data-aos-delay="90"
+            class="text-4xl md:text-6xl font-bold leading-tight"
+          >
+            Hi, I'm <span class="text-[#d77f6e]">Mary</span><br />
+            a <span id="typewriter" class="border-r-4 border-black pr-2"></span>
+          </h1>
+
+          <p
+            data-aos="zoom-in-right"
+            data-aos-delay="110"
+            class="text-gray-600 max-w-xl leading-relaxed"
+          >
+            I am a website designer with a strong focus in UI/UX design. I love
+            to get new experiences and always learn from my surroundings. I'm
+            looking forward to any opportunities and challenges.
+          </p>
+
+          <a
+            href="./404.html"
+            class="inline-block px-6 py-3 bg-[#d77f6e] text-white rounded-lg font-semibold shadow-md hover:shadow-xl hover:opacity-90 transition"
+          >
+            My Resume
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- About Me -->
+    <section class="py-20 px-3 overflow-hidden">
+      <div
+        class="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
+      >
+        <!-- RIGHT CONTENT -->
+        <div>
+          <h2
+            data-aos="zoom-in-right"
+            data-aos-delay="90"
+            class="text-4xl font-bold mb-4"
+          >
+            About Me
+          </h2>
+
+          <p
+            data-aos="zoom-in-right"
+            data-aos-delay="110"
+            class="text-gray-600 leading-relaxed mb-10"
+          >
+            In quis amet ex veniam in irure est culpa veniam velit fugiat
+            cupidatat duis anim commodo elit in occaecat cupidatat eu et sunt
+            commodo voluptate ullamco magna nulla amet. Lorem ipsum officia
+            veniam enim sit culpa velit proident enim ea officia aute non in
+            mollit culpa anim magna sit veniam irure eiusmod.
+          </p>
+
+          <!-- SKILLS LIST -->
+          <div class="space-y-8">
+            <!-- HTML -->
+            <div data-aos="zoom-in-right" data-aos-delay="90">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold">HTML</span>
+                <span class="bg-black text-white text-xs px-2 py-1 rounded"
+                  >80%</span
+                >
+              </div>
+              <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  class="skill-bar h-full bg-rose-400 rounded-full"
+                  data-progress="80%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- CSS -->
+            <div data-aos="zoom-in-right" data-aos-delay="110">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold">CSS</span>
+                <span class="bg-black text-white text-xs px-2 py-1 rounded"
+                  >70%</span
+                >
+              </div>
+              <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  class="skill-bar h-full bg-rose-400 rounded-full"
+                  data-progress="70%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- BOOTSTRAP -->
+            <div data-aos="zoom-in-right" data-aos-delay="130">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold">BOOTSTRAP</span>
+                <span class="bg-black text-white text-xs px-2 py-1 rounded"
+                  >82%</span
+                >
+              </div>
+              <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  class="skill-bar h-full bg-rose-400 rounded-full"
+                  data-progress="82%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- JS -->
+            <div data-aos="zoom-in-right" data-aos-delay="150">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold">JAVASCRIPT</span>
+                <span class="bg-black text-white text-xs px-2 py-1 rounded"
+                  >62%</span
+                >
+              </div>
+              <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  class="skill-bar h-full bg-rose-400 rounded-full"
+                  data-progress="62%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- C LANGUAGE -->
+            <div data-aos="zoom-in-right" data-aos-delay="170">
+              <div class="flex justify-between mb-1">
+                <span class="font-semibold">C PROGRAMMING</span>
+                <span class="bg-black text-white text-xs px-2 py-1 rounded"
+                  >90%</span
+                >
+              </div>
+              <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  class="skill-bar h-full bg-rose-400 rounded-full"
+                  data-progress="90%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LEFT IMAGE -->
+        <div data-aos="zoom-in" data-aos-delay="90" class="flex justify-center">
+          <img
+            src="../assets/profile2.webp"
+            alt="prof2"
+            class="w-full max-w-md rounded-xl drop-shadow-xl"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- JS FOR ANIMATION -->
+    <script>
+      window.addEventListener("load", () => {
+        document.querySelectorAll(".skill-bar").forEach((bar) => {
+          bar.style.width = bar.dataset.progress;
+        });
+      });
+    </script>
+
+    <!-- My Resume -->
+    <section class="px-3 py-20 bg-white overflow-hidden">
+      <div class="mx-auto">
+        <!-- Heading -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold">My Resume</h2>
+          <div class="w-16 h-1 bg-red-400 mx-auto mt-3 rounded"></div>
+        </div>
+
+        <!-- 2 Columns -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- LEFT: EXPERIENCE -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-8">Experiences</h3>
+
+            <!-- ITEM 1 -->
+            <div class="relative pl-12 pb-12">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+              >
+                1
+              </div>
+
+              <p class="text-gray-600 text-sm mb-1">2014 - now</p>
+
+              <div
+                class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200"
+              >
+                <h4 class="font-semibold text-lg">
+                  Founder & Creative Director
+                </h4>
+                <a class="text-red-500 text-sm block mt-1">Kyros Studio</a>
+                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                  tempora perferendis vero officia enim impedit voluptatem
+                  dignissimos.
+                </p>
+              </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="relative pl-12 pb-12">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+              >
+                2
+              </div>
+
+              <p class="text-gray-600 text-sm mb-1">2010 - 2014</p>
+
+              <div
+                class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200"
+              >
+                <h4 class="font-semibold text-lg">Senior UI / UX Designer</h4>
+                <a class="text-red-500 text-sm block mt-1">Google Inc</a>
+                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                  tempora perferendis vero officia enim impedit voluptatem
+                  dignissimos.
+                </p>
+              </div>
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="relative pl-12">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+              >
+                3
+              </div>
+
+              <p class="text-gray-600 text-sm mb-1">2008 - 2010</p>
+
+              <div
+                class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200"
+              >
+                <h4 class="font-semibold text-lg">Graphic Designer</h4>
+                <a class="text-red-500 text-sm block mt-1">Kyros Studio</a>
+                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                  tempora perferendis vero officia enim impedit voluptatem
+                  dignissimos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: EDUCATION -->
+          <div>
+            <h3 class="text-2xl font-semibold mb-8">Education</h3>
+
+            <!-- ITEM 1 -->
+            <div class="relative pl-12 pb-12">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+              >
+                1
+              </div>
+
+              <p class="text-gray-600 text-sm mb-1">2004 - 2008</p>
+
+              <div
+                class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200"
+              >
+                <h4 class="font-semibold text-lg">Master in Design</h4>
+                <a class="text-red-500 text-sm block mt-1"
+                  >New York University</a
+                >
+                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                  tempora perferendis vero officia enim impedit voluptatem
+                  dignissimos.
+                </p>
+              </div>
+            </div>
+
+            <!-- ITEM 2 -->
+            <div class="relative pl-12 pb-12">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+              >
+                2
+              </div>
+
+              <p class="text-gray-600 text-sm mb-1">2004 - 2008</p>
+
+              <div
+                class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200"
+              >
+                <h4 class="font-semibold text-lg">Bachelor of Arts</h4>
+                <a class="text-red-500 text-sm block mt-1"
+                  >University of London</a
+                >
+                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                  tempora perferendis vero officia enim impedit voluptatem
+                  dignissimos.
+                </p>
+              </div>
+            </div>
+
+            <!-- ITEM 3 -->
+            <div class="relative pl-12">
+              <div
+                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+              >
+                3
+              </div>
+
+              <p class="text-gray-600 text-sm mb-1">2006 - 2004</p>
+
+              <div
+                class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200"
+              >
+                <h4 class="font-semibold text-lg">Artist of College</h4>
+                <a class="text-red-500 text-sm block mt-1"
+                  >University of Sydney</a
+                >
+                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+                  tempora perferendis vero officia enim impedit voluptatem
+                  dignissimos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="py-16 px-5 overflow-hidden">
+      <h2 class="text-center text-3xl font-bold tracking-wide">My Portfolio</h2>
+      <div class="w-16 h-1 bg-red-500 mx-auto my-3 rounded-full"></div>
+      <p class="text-center text-lg tracking-wide">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+        fugiat dignissimos saepe natus magnam, culpa quas id? Eum veniam
+        consequatur sed consequuntur.
+      </p>
+
+      <!-- Grid -->
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <!-- CARD TEMPLATE (Repeat 6 times with different content) -->
+        <!-- Card 1 -->
+        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="../assets/d1.webp"
+            alt="d1"
+            class="w-full h-60 object-cover group-hover:scale-110 transition-all duration-700"
+          />
+
+          <!-- Dark overlay -->
+          <div
+            class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-500"
+          ></div>
+
+          <!-- Text -->
+          <div class="absolute top-4 left-4 text-white">
+            <h3 class="text-lg font-semibold">Archi Interior Design</h3>
+            <p class="text-sm opacity-80">website</p>
+          </div>
+
+          <!-- Learn more icon -->
+          <button
+            onclick="openModal('project1')"
+            class="absolute top-4 right-4 text-white text-xl opacity-90 hover:opacity-100 transition-all cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="../assets/d2.webp"
+            alt="d2"
+            class="w-full h-60 object-cover group-hover:scale-110 transition-all duration-700"
+          />
+
+          <div
+            class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all"
+          ></div>
+
+          <div class="absolute top-4 left-4 text-white">
+            <h3 class="text-lg font-semibold">Rockfest Event</h3>
+            <p class="text-sm opacity-80">website</p>
+          </div>
+
+          <button
+            onclick="openModal('project2')"
+            class="absolute top-4 right-4 text-white text-xl opacity-90 hover:opacity-100 cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="../assets/d3.webp"
+            alt="d3"
+            class="w-full h-60 object-cover group-hover:scale-110 transition-all duration-700"
+          />
+
+          <div
+            class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all"
+          ></div>
+
+          <div class="absolute top-4 left-4 text-white">
+            <h3 class="text-lg font-semibold">Justica Lawyer</h3>
+            <p class="text-sm opacity-80">website</p>
+          </div>
+
+          <button
+            onclick="openModal('project3')"
+            class="absolute top-4 right-4 text-white text-xl opacity-90 hover:opacity-100 cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="../assets/d4.webp"
+            alt="d4"
+            class="w-full h-60 object-cover group-hover:scale-110 transition-all duration-700"
+          />
+
+          <div
+            class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all"
+          ></div>
+
+          <div class="absolute top-4 left-4 text-white">
+            <h3 class="text-lg font-semibold">Uhost Hosting</h3>
+            <p class="text-sm opacity-80">website</p>
+          </div>
+
+          <button
+            onclick="openModal('project4')"
+            class="absolute top-4 right-4 text-white text-xl opacity-90 hover:opacity-100 cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="../assets/d5.webp"
+            alt="d5"
+            class="w-full h-60 object-cover group-hover:scale-110 transition-all duration-700"
+          />
+
+          <div
+            class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all"
+          ></div>
+
+          <div class="absolute top-4 left-4 text-white">
+            <h3 class="text-lg font-semibold">Bluetec App</h3>
+            <p class="text-sm opacity-80">website</p>
+          </div>
+
+          <button
+            onclick="openModal('project5')"
+            class="absolute top-4 right-4 text-white text-xl opacity-90 hover:opacity-100 cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+          <img
+            src="../assets/d6.webp"
+            alt="d6"
+            class="w-full h-60 object-cover group-hover:scale-110 transition-all duration-700"
+          />
+
+          <div
+            class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all"
+          ></div>
+
+          <div class="absolute top-4 left-4 text-white">
+            <h3 class="text-lg font-semibold">Bolo Creative</h3>
+            <p class="text-sm opacity-80">website</p>
+          </div>
+
+          <button
+            onclick="openModal('project6')"
+            class="absolute top-4 right-4 text-white text-xl opacity-90 hover:opacity-100 cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popup Modal -->
+    <div id="portfolioModal" class="hidden">
+      <div
+        class="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center p-5 z-50 transition-all duration-300"
+      >
+        <div
+          id="modalBox"
+          class="bg-white p-8 rounded-2xl w-full max-w-lg shadow-2xl opacity-0 scale-75 transition-all duration-500"
+        >
+          <!-- Close -->
+          <button
+            onclick="closeModal()"
+            class="absolute top-3 right-3 text-gray-600 text-xl hover:text-black transition cursor-pointer"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <!-- Dynamic Content -->
+          <h3 id="modalTitle" class="text-2xl font-semibold mb-3"></h3>
+          <p id="modalDesc" class="text-gray-600 leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="px-3 py-6 md:py-12 overflow-hidden bg-[#f5f7ff]">
+      <!-- Heading -->
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="80"
+        class="max-w-6xl mx-auto text-center"
+      >
+        <p
+          class="text-sm font-medium text-gray-600 flex items-center justify-center gap-2"
+        >
+          Testimonials <i class="fa-regular fa-note-sticky"></i>
+        </p>
+
+        <h1
+          class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mt-2"
+        >
+          What <span class="text-primary">my client</span> have to say<br />
+          <span class="text-primary">about me</span>
+        </h1>
+      </div>
+
+      <!-- Slider Wrapper -->
+      <div class="relative max-w-6xl mx-auto mt-10">
+        <!-- Controls -->
+        <div class="flex justify-end gap-4 my-8">
+          <button
+            id="prevBtn"
+            class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <button
+            id="nextBtn"
+            class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-gray-100 cursor-pointer"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <!-- Track (flex) -->
+        <div
+          id="testimonialTrack"
+          class="flex gap-6 will-change-transform"
+          style="transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1)"
+        >
+          <!-- Slides will be present here (JS clones them) -->
+
+          <div
+            class="test-card shrink-0 w-full md:w-1/2 bg-white shadow-lg p-8 rounded-2xl"
+          >
+            <i class="fa-solid fa-quote-left text-4xl text-primary"></i>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              The work was exceptional. Highly professional and delivered on
+              time.
+            </p>
+            <div class="flex items-center gap-4 mt-6">
+              <img
+                src="../assets/men.webp"
+                alt="user1"
+                class="w-12 h-12 rounded-full object-cover object-top"
+              />
+              <div>
+                <h3 class="font-semibold">Adnan</h3>
+                <p class="text-gray-500 text-sm">Business Owner</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="test-card shrink-0 w-full md:w-1/2 bg-white shadow-lg p-8 rounded-2xl"
+          >
+            <i class="fa-solid fa-quote-left text-4xl text-primary"></i>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Amazing communication and fast delivery. Totally recommend!
+            </p>
+            <div class="flex items-center gap-4 mt-6">
+              <img
+                src="../assets/men1.webp"
+                alt="user2"
+                class="w-12 h-12 rounded-full object-cover object-top"
+              />
+              <div>
+                <h3 class="font-semibold">Sofia</h3>
+                <p class="text-gray-500 text-sm">Brand Manager</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="test-card shrink-0 w-full md:w-1/2 bg-white shadow-lg p-8 rounded-2xl"
+          >
+            <i class="fa-solid fa-quote-left text-4xl text-primary"></i>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Elite work! Better than top agency standards.
+            </p>
+            <div class="flex items-center gap-4 mt-6">
+              <img
+                src="../assets/men2.webp"
+                alt="user3"
+                class="w-12 h-12 rounded-full object-cover object-top"
+              />
+              <div>
+                <h3 class="font-semibold">Michael</h3>
+                <p class="text-gray-500 text-sm">Founder</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="test-card shrink-0 w-full md:w-1/2 bg-white shadow-lg p-8 rounded-2xl"
+          >
+            <i class="fa-solid fa-quote-left text-4xl text-primary"></i>
+            <p class="mt-4 text-gray-600 leading-relaxed">
+              Clean, modern & smooth — exactly what I needed!
+            </p>
+            <div class="flex items-center gap-4 mt-6">
+              <img
+                src="../assets/men3.webp"
+                alt="user4"
+                class="w-12 h-12 rounded-full object-cover object-top"
+              />
+              <div>
+                <h3 class="font-semibold">Emily</h3>
+                <p class="text-gray-500 text-sm">Creative Director</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Happy Client -->
+    <section id="work" class="bg-[#f5f7fb] py-20 scroll-mt-20 overflow-hidden">
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-14 items-center"
+      >
+        <!-- LEFT CONTENT -->
+        <div>
+          <h4
+            data-aos="zoom-in-right"
+            data-aos-delay="90"
+            class="text-[#4B57E3] font-semibold text-lg flex items-center gap-2"
+          >
+            Happy Client
+            <span class="text-xl"></span>
+          </h4>
+
+          <h2
+            data-aos="zoom-in-right"
+            data-aos-delay="110"
+            class="mt-4 font-extrabold text-4xl md:text-5xl leading-tight text-[#0b0f2f]"
+          >
+            I work with over
+            <span class="text-[#ff7e73]">150+<br />happy clients</span>
+          </h2>
+
+          <p
+            data-aos="zoom-in-right"
+            data-aos-delay="130"
+            class="mt-6 text-gray-600 leading-relaxed max-w-md"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            commodo ligula eget dolor. Aenean massa.
+          </p>
+        </div>
+
+        <!-- RIGHT CLIENT CARDS -->
+        <div class="relative">
+          <!-- Soft background blur -->
+          <div
+            class="absolute inset-0 bg-white opacity-70 blur-3xl rounded-3xl"
+          ></div>
+
+          <div
+            class="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <!-- CARD 1 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="50"
+              class="rounded-2xl overflow-hidden shadow-md bg-white"
+            >
+              <div class="p-6 bg-[#00205c] flex items-center justify-center">
+                <span class="text-2xl font-bold text-white">Border</span>
+              </div>
+              <div class="py-3 text-center font-medium text-gray-700">
+                Border
+              </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="70"
+              class="rounded-2xl overflow-hidden shadow-md bg-white"
+            >
+              <div class="p-6 bg-[#b9ecbf] flex items-center justify-center">
+                <span class="text-2xl font-bold text-[#0b2d0f]">Rise</span>
+              </div>
+              <div class="py-3 text-center font-medium text-gray-700">Rise</div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="90"
+              class="rounded-2xl overflow-hidden shadow-md bg-white"
+            >
+              <div class="p-6 bg-[#ffe4d4] flex items-center justify-center">
+                <span class="text-2xl font-bold text-[#e56a3d]">eBook</span>
+              </div>
+              <div class="py-3 text-center font-medium text-gray-700">
+                eBook
+              </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="110"
+              class="rounded-2xl overflow-hidden shadow-md bg-white"
+            >
+              <div class="p-6 bg-[#24b879] flex items-center justify-center">
+                <span class="text-2xl font-bold text-white">Doctor +</span>
+              </div>
+              <div class="py-3 text-center font-medium text-gray-700">
+                Doctor Plus
+              </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="130"
+              class="rounded-2xl overflow-hidden shadow-md bg-white"
+            >
+              <div class="p-6 bg-[#ff5f79] flex items-center justify-center">
+                <span class="text-2xl font-bold text-white">PinPoint</span>
+              </div>
+              <div class="py-3 text-center font-medium text-gray-700">
+                Pinpoint
+              </div>
+            </div>
+
+            <!-- CARD 6 -->
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="150"
+              class="rounded-2xl overflow-hidden shadow-md bg-white"
+            >
+              <div class="p-6 bg-[#f8d23c] flex items-center justify-center">
+                <span class="text-2xl font-bold text-[#292411]">Recharge</span>
+              </div>
+              <div class="py-3 text-center font-medium text-gray-700">
+                Recharge
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const modal = document.getElementById("portfolioModal");
+      const modalBox = document.getElementById("modalBox");
+
+      const projectData = {
+        project1: {
+          title: "Archi Interior Design",
+          desc: "Full architecture interior website concept with modern UI and smooth animations. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint illum iure impedit minima recusandae enim ducimus, explicabo quod perferendis porro praesentium amet aliquam nemo doloremque voluptate hic itaque libero.",
+        },
+        project2: {
+          title: "Rockfest Event",
+          desc: "Music event website with dark theme, booking features and photo gallery. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint illum iure impedit minima recusandae enim ducimus, explicabo quod perferendis porro praesentium amet aliquam nemo doloremque voluptate hic itaque libero.",
+        },
+        project3: {
+          title: "Justica Lawyer",
+          desc: "Professional law firm website with service showcase and appointment system. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint illum iure impedit minima recusandae enim ducimus, explicabo quod perferendis porro praesentium amet aliquam nemo doloremque voluptate hic itaque libero.",
+        },
+        project4: {
+          title: "Uhost Hosting",
+          desc: "Web hosting provider landing page with pricing tables and modern UI. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint illum iure impedit minima recusandae enim ducimus, explicabo quod perferendis porro praesentium amet aliquam nemo doloremque voluptate hic itaque libero.",
+        },
+        project5: {
+          title: "Bluetec App",
+          desc: "App UI/UX concept with dashboard, analytics and mobile-friendly layouts. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint illum iure impedit minima recusandae enim ducimus, explicabo quod perferendis porro praesentium amet aliquam nemo doloremque voluptate hic itaque libero.",
+        },
+        project6: {
+          title: "Bolo Creative",
+          desc: "Creative agency website showcasing portfolio, services and branding ideas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint illum iure impedit minima recusandae enim ducimus, explicabo quod perferendis porro praesentium amet aliquam nemo doloremque voluptate hic itaque libero.",
+        },
+      };
+
+      function openModal(project) {
+        document.getElementById("modalTitle").innerText =
+          projectData[project].title;
+        document.getElementById("modalDesc").innerText =
+          projectData[project].desc;
+
+        modal.classList.remove("hidden");
+
+        // Smooth animation
+        setTimeout(() => {
+          modalBox.classList.remove("opacity-0", "scale-75");
+          modalBox.classList.add("opacity-100", "scale-100");
+        }, 20);
+      }
+
+      function closeModal() {
+        modalBox.classList.add("opacity-0", "scale-75");
+        modalBox.classList.remove("opacity-100", "scale-100");
+
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 300);
+      }
+    </script>
+
+    <script>
+      (function () {
+        const track = document.getElementById("testimonialTrack");
+        let slides = Array.from(track.children);
+        const gap = parseInt(getComputedStyle(track).gap) || 24; // fallback
+        let slidesToShow = window.matchMedia("(min-width: 768px)").matches
+          ? 2
+          : 1;
+        let slideWidth = 0;
+        let index = 0; // will point to the "real" first slide after cloning
+        let autoTimer = null;
+        let isTransitioning = false;
+        let startX = 0,
+          currentTranslate = 0,
+          isDragging = false;
+
+        // clone for infinite loop: prepend last N and append first N (N = slidesToShow)
+        function setupClones() {
+          // remove existing clones if rerunning
+          slides.forEach((s) => s.classList.remove("clone"));
+          // clear track (we'll reconstruct)
+          // but easier: clone required slides and add
+          const originals = slides.slice();
+          // prepend last N clones
+          for (
+            let i = originals.length - slidesToShow;
+            i < originals.length;
+            i++
+          ) {
+            const clone = originals[i].cloneNode(true);
+            clone.classList.add("clone");
+            track.insertBefore(clone, track.firstChild);
+          }
+          // append first N clones
+          for (let i = 0; i < slidesToShow; i++) {
+            const clone = originals[i].cloneNode(true);
+            clone.classList.add("clone");
+            track.appendChild(clone);
+          }
+          slides = Array.from(track.children);
+        }
+
+        // calculate widths and set initial translate
+        function calculate() {
+          slidesToShow = window.matchMedia("(min-width: 768px)").matches
+            ? 2
+            : 1;
+          // reset clones and recalc
+          // to avoid duplicate clones on repeated calculate, reconstruct original area
+          // strategy: extract only original slides (non-clone), then clear track and re-add originals then clones
+          const originals = Array.from(track.children).filter(
+            (ch) => !ch.classList.contains("clone")
+          );
+          track.innerHTML = "";
+          originals.forEach((o) => track.appendChild(o));
+          slides = Array.from(track.children);
+
+          setupClones();
+          slides = Array.from(track.children);
+
+          // measure a slide (first non-clone original)
+          const firstOriginal = track.querySelector(".test-card:not(.clone)");
+          if (!firstOriginal) return;
+          // width of slide as rendered (includes shrink-0; will be full width or half)
+          slideWidth = firstOriginal.getBoundingClientRect().width + gap;
+
+          // Set the initial index to N (because clones were prepended)
+          index = slidesToShow;
+          // Immediately position (no transition)
+          track.style.transition = "none";
+          track.style.transform = `translateX(${-index * slideWidth}px)`;
+          // re-enable transition after next frame
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              track.style.transition =
+                "transform 700ms cubic-bezier(.4,0,.2,1)";
+            });
+          });
+        }
+
+        // slide functions
+        function moveTo(i) {
+          if (isTransitioning) return;
+          isTransitioning = true;
+          index = i;
+          track.style.transform = `translateX(${-index * slideWidth}px)`;
+          // after transition, check clones
+          setTimeout(() => {
+            // if we moved past appended clones (index >= slides.length - slidesToShow)
+            if (index >= slides.length - slidesToShow) {
+              // jump back to the corresponding original index
+              index = slidesToShow;
+              track.style.transition = "none";
+              track.style.transform = `translateX(${-index * slideWidth}px)`;
+              // force reflow then restore transition
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  track.style.transition =
+                    "transform 700ms cubic-bezier(.4,0,.2,1)";
+                  isTransitioning = false;
+                });
+              });
+            } else if (index < slidesToShow) {
+              // moved before prepended clones
+              index = slides.length - 2 * slidesToShow;
+              track.style.transition = "none";
+              track.style.transform = `translateX(${-index * slideWidth}px)`;
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  track.style.transition =
+                    "transform 700ms cubic-bezier(.4,0,.2,1)";
+                  isTransitioning = false;
+                });
+              });
+            } else {
+              isTransitioning = false;
+            }
+          }, 720); // slightly longer than transition
+        }
+
+        function next() {
+          moveTo(index + 1);
+        }
+        function prev() {
+          moveTo(index - 1);
+        }
+
+        // auto play
+        function startAuto() {
+          stopAuto();
+          autoTimer = setInterval(() => {
+            next();
+          }, 4000);
+        }
+        function stopAuto() {
+          if (autoTimer) clearInterval(autoTimer);
+          autoTimer = null;
+        }
+
+        // pause on hover
+        track.addEventListener("mouseenter", stopAuto);
+        track.addEventListener("mouseleave", startAuto);
+
+        // controls
+        document.getElementById("nextBtn").addEventListener("click", () => {
+          next();
+        });
+        document.getElementById("prevBtn").addEventListener("click", () => {
+          prev();
+        });
+
+        // touch / swipe support
+        track.addEventListener(
+          "touchstart",
+          (e) => {
+            stopAuto();
+            isDragging = true;
+            startX = e.touches[0].clientX;
+            currentTranslate = -index * slideWidth;
+            track.style.transition = "none";
+          },
+          { passive: true }
+        );
+
+        track.addEventListener(
+          "touchmove",
+          (e) => {
+            if (!isDragging) return;
+            const dx = e.touches[0].clientX - startX;
+            track.style.transform = `translateX(${currentTranslate + dx}px)`;
+          },
+          { passive: true }
+        );
+
+        track.addEventListener("touchend", (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          const dx = e.changedTouches[0].clientX - startX;
+          if (Math.abs(dx) > 50) {
+            if (dx < 0) next();
+            else prev();
+          } else {
+            // snap back
+            track.style.transition = "transform 300ms";
+            track.style.transform = `translateX(${-index * slideWidth}px)`;
+            setTimeout(() => {
+              track.style.transition =
+                "transform 700ms cubic-bezier(.4,0,.2,1)";
+            }, 350);
+          }
+          startAuto();
+        });
+
+        // keyboard support
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") next();
+          if (e.key === "ArrowLeft") prev();
+        });
+
+        // On load & resize recalc
+        window.addEventListener("load", () => {
+          // wait images layout
+          setTimeout(calculate, 50);
+          startAuto();
+        });
+
+        window.addEventListener("resize", () => {
+          // recalc after resize finished
+          clearTimeout(window._sliderResize);
+          window._sliderResize = setTimeout(() => {
+            calculate();
+          }, 120);
+        });
+      })();
+    </script>
+
+    <!-- TYPEWRITER JS -->
+    <script>
+      const words = ["Designer.", "Developer.", "Illustrator.", "Creator."];
+      let i = 0,
+        j = 0,
+        isDeleting = false;
+
+      function typeEffect() {
+        const element = document.getElementById("typewriter");
+        const currentWord = words[i];
+
+        if (!isDeleting) {
+          element.textContent = currentWord.substring(0, j++);
+        } else {
+          element.textContent = currentWord.substring(0, j--);
+        }
+
+        if (j === currentWord.length + 1) {
+          isDeleting = true;
+          setTimeout(typeEffect, 800);
+          return;
+        }
+
+        if (j === 0 && isDeleting) {
+          isDeleting = false;
+          i = (i + 1) % words.length;
+        }
+
+        setTimeout(typeEffect, isDeleting ? 80 : 120);
+      }
+
+      typeEffect();
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-10 px-3 overflow-hidden">
+      <div class="mx-auto text-center">
+        <!-- Name -->
+        <h2 class="text-3xl font-serif italic text-gray-900">
+          Mary Smith, web designer
+        </h2>
+
+        <!-- Tagline -->
+        <p class="text-gray-500 mt-2 text-lg">Excellence in digital creation</p>
+
+        <!-- Navigation Links -->
+        <div
+          class="flex flex-wrap justify-center gap-4 xsm:gap-10 mt-8 text-gray-700 text-lg"
+        >
+          <a href="./index.html" class="hover:text-primary transition">Home</a>
+          <a href="./about.html" class="hover:text-primary transition">About</a>
+          <a href="./service.html" class="hover:text-primary transition"
+            >Services</a
+          >
+          <a href="./blog.html" class="hover:text-primary transition">Blogs</a>
+          <a href="./contact.html" class="hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center gap-6 mt-8">
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-linkedin-in text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-facebook-f text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-github text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-twitter text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-instagram text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+        </div>
+
+        <!-- Privacy -->
+        <p class="text-gray-600 text-sm py-8">Privacy & Legal</p>
+
+        <!-- Copyright -->
+        <p class="text-gray-500 text-sm py-4 border-t border-gray-400">
+          © <span id="year"></span> Mary Smith. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Auto-update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Aos Animation  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- mobile menu script -->
+    <script>
+      // Aos Animation Init
+      AOS.init({
+        duration: 800,
+        delay: 200, // default delay for all elements
+        once: false,
+        mirror: true,
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const links = mobileMenu.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Optional: close menu if clicked outside
+      window.addEventListener("click", (e) => {
+        if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+          homeMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

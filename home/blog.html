@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+
+    <!-- meta tags -->
+    <meta name="title" content="Portfolio | Developer, Designer, Creator" />
+    <meta
+      name="description"
+      content="Personal Portfolio, a passionate developer creating modern web experiences. Explore my projects, skills, services, and ways to work together."
+    />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfolio" />
+    <meta
+      property="og:description"
+      content="Welcome to my personal portfolio! I build modern, fast, and user-friendly digital experiences."
+    />
+
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Aos Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS  -->
+    <link rel="stylesheet" href="../src/output.css" />
+
+    <!-- Navbar -->
+    <style>
+      body {
+        font-family: "EB Garamond", serif;
+        overflow-x: hidden;
+      }
+
+      /* Hamburger animation */
+      .hamburger span {
+        display: block;
+        width: 1.5rem;
+        height: 0.125rem;
+        margin: 0.4rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: currentColor;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mobile menu slide + fade */
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        /* height: 100vh; */
+        transform: translateX(-100%);
+        /* overflow: hidden; */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        /* max-height: 1000px; */
+        /* enough for nav links */
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+
+  <body class="antialiased bg-white text-black font-primary">
+    <!-- Navbar  -->
+    <header class="sticky top-0 z-40 w-full mx-auto">
+      <div
+        class="flex items-center justify-between px-3 h-16 bg-white shadow-md backdrop-blur-2xl"
+      >
+        <!-- Logo -->
+        <a class="" href="./index.html">
+          <img class="h-8" src="../assets/logo.webp" alt="logo" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-5 text-sm font-medium"
+        >
+          <!-- Home with Dropdown -->
+          <div class="relative">
+            <!-- Parent Button -->
+            <button
+              class="relative text-primary inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+            >
+              <a href="./index.html">Home</a>
+              <i id="homeToggle" class="fa-solid fa-caret-down"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="homeMenu"
+              class="absolute hidden bg-white text-black backdrop-blur-2xl shadow-lg mt-2 rounded w-40 z-40"
+            >
+              <li>
+                <a href="../index.html" class="block px-4 py-2"> Home 1 </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <a
+            href="./about.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+
+          <!-- Services -->
+          <a
+            href="./service.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Services
+          </a>
+          <!-- Blogs -->
+          <a
+            href="./blog.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blogs
+          </a>
+          <!-- Contact -->
+          <a
+            href="./contact.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
+          <!-- Dashboard -->
+          <a
+            href="./dashboard.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- login -->
+        <div class="flex text-sm gap-4 font-medium">
+          <div class="relative items-center gap-6 lg:flex hidden">
+            <a
+              class="md:flex items-center gap-2 rounded-full px-6 py-2 text-white bg-primary text-sm transform hover:scale-95 transition duration-200 ease-out hidden"
+              href="./signin.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger"
+            class="hamburger cursor-pointer lg:hidden focus:outline-none"
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobileMenu" class="mobile-menu h-screen lg:hidden shadow-md">
+        <ul
+          class="flex flex-col space-y-4 p-3 text-sm font-medium h-screen md:w-1/2 bg-white backdrop-blur-2xl"
+        >
+          <!-- Home dropDown  -->
+          <div class="relative">
+            <button
+              class="flex items-center text-primary gap-1 w-full text-left lg:hidden"
+            >
+              <a href="./index.html">Home</a>
+              <i
+                id="mobileToggle"
+                class="fa-solid fa-caret-down cursor-pointer"
+              ></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="mobileLink"
+              class="hidden bg-white text-black mt-2 rounded w-full md:absolute"
+            >
+              <li>
+                <a href="../index.html" class="block px-2 py-2"> Home 1 </a>
+              </li>
+            </ul>
+          </div>
+          <!-- About -->
+          <li>
+            <a href="./about.html" class="nav-link block">About</a>
+          </li>
+          <!-- Services -->
+          <li>
+            <a href="./service.html" class="nav-link block">Services</a>
+          </li>
+          <!-- Blogs -->
+          <li>
+            <a href="./blog.html" class="nav-link block">Blogs</a>
+          </li>
+          <!-- Contact -->
+          <li>
+            <a href="./contact.html" class="nav-link block">Contact</a>
+          </li>
+          <!-- Dashboard -->
+          <li>
+            <a href="./dashboard.html" class="nav-link block">Dashboard</a>
+          </li>
+          <!-- login  -->
+          <li>
+            <a href="./signin.html" class="flex items-center gap-2 nav-link"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown script  -->
+      <script>
+        const homeToggle = document.getElementById("homeToggle");
+        const homeMenu = document.getElementById("homeMenu");
+
+        homeToggle.addEventListener("click", () => {
+          homeMenu.classList.toggle("hidden");
+        });
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileLink = document.getElementById("mobileLink");
+
+        // Home dropdown toggle (mobile only)
+        mobileToggle.addEventListener("click", () => {
+          mobileLink.classList.toggle("hidden");
+        });
+
+        // Optional: close menu if clicked outside
+        window.addEventListener("click", (e) => {
+          if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+            homeMenu.classList.add("hidden");
+          }
+        });
+      </script>
+    </header>
+
+    <section class="px-3 py-6 md:py-12 overflow-hidden">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl text-center font-bold mb-6">
+        Latest <span class="text-primary">Blogs</span>
+      </h1>
+      <p
+        class="text-sm md:text-lg text-center text-gray-600 max-w-2xl mx-auto mb-10"
+      >
+        Explore my latest thoughts, tutorials, tips, and personal stories.
+      </p>
+
+      <!-- Search + Category -->
+      <div
+        class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-4 mb-10"
+      >
+        <input
+          id="searchInput"
+          type="text"
+          placeholder="Search blogs..."
+          class="w-full md:flex-1 px-4 py-3 rounded-lg border shadow-sm focus:ring-2 focus:ring-blue-500 outline-none"
+        />
+
+        <select
+          id="categoryFilter"
+          class="px-4 py-3 rounded-lg border shadow-sm focus:ring-2 focus:ring-blue-500 outline-none w-full md:w-52"
+        >
+          <option value="all">All Categories</option>
+          <option value="design">Design</option>
+          <option value="development">Development</option>
+          <option value="personal">Personal</option>
+        </select>
+      </div>
+
+      <!-- Blog Grid -->
+      <div
+        id="blogContainer"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  mx-auto"
+      >
+        <!-- Template Blog Card -->
+        <!-- Cards inserted by JS -->
+      </div>
+
+      <!-- No Results -->
+      <p
+        id="noResults"
+        class="text-center text-gray-500 mt-10 hidden text-lg font-medium"
+      >
+        No blogs found 😢
+      </p>
+    </section>
+
+    <!-- POPUP MODAL -->
+    <div id="blogModal" class="hidden">
+      <div
+        class="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center px-4 z-999"
+      >
+        <div class="bg-white rounded-xl shadow-xl max-w-2xl w-full p-6">
+          <button
+            id="closeModal"
+            class="text-gray-500 text-xl float-right hover:text-red-500 cursor-pointer"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <h2 id="modalTitle" class="text-2xl font-bold mb-3"></h2>
+          <img
+            id="modalImage"
+            class="rounded-lg mb-4 w-full h-56 object-cover"
+          />
+          <p id="modalContent" class="text-gray-600 leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const blogs = [
+        {
+          title: "How I Designed My Portfolio UI",
+          category: "design",
+          image: "../assets/ui.webp",
+          content:
+            "A deep dive into wireframes, layout structure, visual balance, and color psychology.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur magnam facere consequatur, excepturi architecto laborum. Illum excepturi ducimus soluta possimus? Quos voluptates recusandae exercitationem repudiandae iusto corporis fuga hic id.",
+        },
+        {
+          title: "Top 5 UI Design Mistakes Beginners Make",
+          category: "design",
+          image: "../assets/fig1.webp",
+          content:
+            "Avoid these mistakes to instantly improve your user interfaces and workflows.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur magnam facere consequatur, excepturi architecto laborum. Illum excepturi ducimus soluta possimus? Quos voluptates recusandae exercitationem repudiandae iusto corporis fuga hic id.",
+        },
+        {
+          title: "How I Build Websites Faster",
+          category: "development",
+          image: "../assets/ux.webp",
+          content:
+            "Exploring reusable components, TailwindCSS workflows, and better coding habits.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur magnam facere consequatur, excepturi architecto laborum. Illum excepturi ducimus soluta possimus? Quos voluptates recusandae exercitationem repudiandae iusto corporis fuga hic id.",
+        },
+        {
+          title: "Mastering JavaScript in 2025",
+          category: "development",
+          image: "../assets/js.webp",
+          content:
+            "All the new features, patterns, and best practices you must learn.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur magnam facere consequatur, excepturi architecto laborum. Illum excepturi ducimus soluta possimus? Quos voluptates recusandae exercitationem repudiandae iusto corporis fuga hic id.",
+        },
+        {
+          title: "My Journey From Beginner to Pro Developer",
+          category: "personal",
+          image: "../assets/mobile.webp",
+          content:
+            "A motivational story of hustle, learning, and becoming confident.  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur magnam facere consequatur, excepturi architecto laborum. Illum excepturi ducimus soluta possimus? Quos voluptates recusandae exercitationem repudiandae iusto corporis fuga hic id.",
+        },
+        {
+          title: "How I Stay Productive Daily",
+          category: "personal",
+          image: "../assets/webco.webp",
+          content:
+            "My daily routines, tools, workflows, and time-management styles. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur magnam facere consequatur, excepturi architecto laborum. Illum excepturi ducimus soluta possimus? Quos voluptates recusandae exercitationem repudiandae iusto corporis fuga hic id.",
+        },
+      ];
+
+      const blogContainer = document.getElementById("blogContainer");
+      const searchInput = document.getElementById("searchInput");
+      const categoryFilter = document.getElementById("categoryFilter");
+      const noResults = document.getElementById("noResults");
+      const modal = document.getElementById("blogModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalImage = document.getElementById("modalImage");
+      const modalContent = document.getElementById("modalContent");
+      const closeModal = document.getElementById("closeModal");
+
+      // RENDER BLOGS
+      function renderBlogs() {
+        blogContainer.innerHTML = "";
+
+        const searchText = searchInput.value.toLowerCase();
+        const category = categoryFilter.value;
+
+        const filtered = blogs.filter((b) => {
+          const matchesSearch = b.title.toLowerCase().includes(searchText);
+          const matchesCategory = category === "all" || b.category === category;
+          return matchesSearch && matchesCategory;
+        });
+
+        if (filtered.length === 0) {
+          noResults.classList.remove("hidden");
+        } else {
+          noResults.classList.add("hidden");
+        }
+
+        filtered.forEach((blog, index) => {
+          const card = document.createElement("div");
+          card.className =
+            "bg-white p-5 rounded-xl shadow hover:shadow-md transition cursor-pointer";
+          card.innerHTML = `
+      <img src="${blog.image}" class="rounded-lg mb-4 h-44 w-full object-cover" />
+      <p class="text-sm text-primary font-medium mb-1 capitalize">${blog.category}</p>
+      <h3 class="text-lg font-semibold">${blog.title}</h3>
+    `;
+          card.addEventListener("click", () => openModal(blog));
+          blogContainer.appendChild(card);
+        });
+      }
+
+      renderBlogs();
+
+      // SEARCH & FILTER EVENTS
+      searchInput.addEventListener("keyup", renderBlogs);
+      categoryFilter.addEventListener("change", renderBlogs);
+
+      // MODAL FUNCTIONS
+      function openModal(blog) {
+        modalTitle.textContent = blog.title;
+        modalImage.src = blog.image;
+        modalContent.textContent = blog.content;
+
+        modal.classList.remove("hidden");
+
+        const modalCard = modal.children[0];
+        setTimeout(() => {
+          modalCard.classList.remove("scale-95", "opacity-0");
+          modalCard.classList.add("scale-100", "opacity-100");
+        }, 10);
+      }
+
+      closeModal.addEventListener("click", () => {
+        const modalCard = modal.children[0];
+        modalCard.classList.add("scale-95", "opacity-0");
+
+        setTimeout(() => {
+          modal.classList.add("hidden");
+        }, 250);
+      });
+
+      // Close modal when clicking outside
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal.click();
+        }
+      });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-10 px-3 overflow-hidden">
+      <div class="mx-auto text-center">
+        <!-- Name -->
+        <h2 class="text-3xl font-serif italic text-gray-900">
+          Mary Smith, web designer
+        </h2>
+
+        <!-- Tagline -->
+        <p class="text-gray-500 mt-2 text-lg">Excellence in digital creation</p>
+
+        <!-- Navigation Links -->
+        <div
+          class="flex flex-wrap justify-center gap-4 xsm:gap-10 mt-8 text-gray-700 text-lg"
+        >
+          <a href="./index.html" class="hover:text-primary transition"
+            >Home</a
+          >
+          <a href="./about.html" class="hover:text-primary transition"
+            >About</a
+          >
+          <a href="./service.html" class="hover:text-primary transition"
+            >Services</a
+          >
+          <a href="./blog.html" class="hover:text-primary transition"
+            >Blogs</a
+          >
+          <a href="./contact.html" class="hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center gap-6 mt-8">
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-linkedin-in text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-facebook-f text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-github text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-twitter text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-instagram text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+        </div>
+
+        <!-- Privacy -->
+        <p class="text-gray-600 text-sm py-8">Privacy & Legal</p>
+
+        <!-- Copyright -->
+        <p class="text-gray-500 text-sm py-4 border-t border-gray-400">
+          © <span id="year"></span> Mary Smith. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Auto-update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Aos Animation  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- mobile menu script -->
+    <script>
+      // Aos Animation Init
+      AOS.init({
+        duration: 800,
+        delay: 200, // default delay for all elements
+        once: false,
+        mirror: true,
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const links = mobileMenu.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Optional: close menu if clicked outside
+      window.addEventListener("click", (e) => {
+        if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+          homeMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

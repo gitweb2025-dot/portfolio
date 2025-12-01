@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+
+    <!-- meta tags -->
+    <meta name="title" content="Portfolio | Developer, Designer, Creator" />
+    <meta
+      name="description"
+      content="Personal Portfolio, a passionate developer creating modern web experiences. Explore my projects, skills, services, and ways to work together."
+    />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfolio" />
+    <meta
+      property="og:description"
+      content="Welcome to my personal portfolio! I build modern, fast, and user-friendly digital experiences."
+    />
+
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Aos Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS  -->
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <!-- Navbar -->
+    <style>
+      body {
+        font-family: "EB Garamond", serif;
+        overflow-x: hidden;
+      }
+
+      /* Hamburger animation */
+      .hamburger span {
+        display: block;
+        width: 1.5rem;
+        height: 0.125rem;
+        margin: 0.4rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: currentColor;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mobile menu slide + fade */
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        /* height: 100vh; */
+        transform: translateX(-100%);
+        /* overflow: hidden; */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        /* max-height: 1000px; */
+        /* enough for nav links */
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+
+    <!-- blog style  -->
+    <style>
+      /* extra small niceties */
+      .no-select {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      /* Modal animation helpers (we'll toggle these via JS) */
+      .modal-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modal-closed {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .modal-scale-in {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      .modal-scale-out {
+        transform: translateY(-10px) scale(0.96);
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body class="antialiased bg-white text-black font-primary">
+    <!-- Navbar  -->
+    <header class="sticky top-0 z-40 w-full mx-auto">
+      <div
+        class="flex items-center justify-between px-3 h-16 bg-white shadow-md backdrop-blur-2xl"
+      >
+        <!-- Logo -->
+        <a class="" href="./index.html">
+          <img class="h-8" src="./assets/logo.webp" alt="logo" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-5 text-sm font-medium"
+        >
+          <!-- Home with Dropdown -->
+          <div class="relative">
+            <!-- Parent Button -->
+            <button
+              class="relative text-primary inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+            >
+              <a href="./index.html">Home</a>
+              <i id="homeToggle" class="fa-solid fa-caret-down"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="homeMenu"
+              class="absolute hidden bg-white text-black backdrop-blur-2xl shadow-lg mt-2 rounded w-40 z-40"
+            >
+              <li>
+                <a href="./home/index.html" class="block px-4 py-2"> Home 2 </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <a
+            href="./about.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+
+          <!-- Services -->
+          <a
+            href="./service.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Services
+          </a>
+          <!-- Blogs -->
+          <a
+            href="./blog.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blogs
+          </a>
+          <!-- Contact -->
+          <a
+            href="./contact.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
+          <!-- Dashboard -->
+          <a
+            href="./dashboard.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- login -->
+        <div class="flex text-sm gap-4 font-medium">
+          <div class="relative items-center gap-6 lg:flex hidden">
+            <a
+              class="md:flex items-center gap-2 rounded-full px-6 py-2 text-white bg-primary text-sm transform hover:scale-95 transition duration-200 ease-out hidden"
+              href="./signin.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger"
+            class="hamburger cursor-pointer lg:hidden focus:outline-none"
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobileMenu" class="mobile-menu h-screen lg:hidden shadow-md">
+        <ul
+          class="flex flex-col space-y-4 p-3 text-sm font-medium h-screen md:w-1/2 bg-white backdrop-blur-2xl"
+        >
+          <!-- Home dropDown  -->
+          <div class="relative">
+            <button
+              class="flex items-center text-primary gap-1 w-full text-left lg:hidden"
+            >
+              <a href="./index.html">Home</a>
+              <i
+                id="mobileToggle"
+                class="fa-solid fa-caret-down cursor-pointer"
+              ></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="mobileLink"
+              class="hidden bg-white text-black mt-2 rounded w-full md:absolute"
+            >
+              <li>
+                <a href="./home/index.html" class="block px-2 py-2"> Home 2 </a>
+              </li>
+            </ul>
+          </div>
+          <!-- About -->
+          <li>
+            <a href="./about.html" class="nav-link block">About</a>
+          </li>
+          <!-- Services -->
+          <li>
+            <a href="./service.html" class="nav-link block">Services</a>
+          </li>
+          <!-- Blogs -->
+          <li>
+            <a href="./blog.html" class="nav-link block">Blogs</a>
+          </li>
+          <!-- Contact -->
+          <li>
+            <a href="./contact.html" class="nav-link block">Contact</a>
+          </li>
+          <!-- Dashboard -->
+          <li>
+            <a href="./dashboard.html" class="nav-link block">Dashboard</a>
+          </li>
+          <!-- login  -->
+          <li>
+            <a href="./signin.html" class="flex items-center gap-2 nav-link"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown script  -->
+      <script>
+        const homeToggle = document.getElementById("homeToggle");
+        const homeMenu = document.getElementById("homeMenu");
+
+        homeToggle.addEventListener("click", () => {
+          homeMenu.classList.toggle("hidden");
+        });
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileLink = document.getElementById("mobileLink");
+
+        // Home dropdown toggle (mobile only)
+        mobileToggle.addEventListener("click", () => {
+          mobileLink.classList.toggle("hidden");
+        });
+
+        // Optional: close menu if clicked outside
+        window.addEventListener("click", (e) => {
+          if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+            homeMenu.classList.add("hidden");
+          }
+        });
+      </script>
+    </header>
+
+    <!-- Recent Articles Section -->
+    <section class="px-3 py-12 overflow-hidden">
+      <div class="mx-auto">
+        <!-- heading + search -->
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8"
+        >
+          <h2 class="text-3xl md:text-4xl font-bold">Recent Articles</h2>
+
+          <div class="w-full md:w-1/3">
+            <div class="relative">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search..."
+                class="w-full rounded-xl shadow-sm border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <button
+                id="searchBtn"
+                class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary p-2 rounded-lg text-white shadow"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Sidebar categories -->
+          <aside class="md:col-span-1">
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+              <h3 class="text-lg font-semibold mb-4">Categories</h3>
+              <ul id="categoryList" class="space-y-2">
+                <!-- items injected via static markup for better a11y; JS toggles classes -->
+                <li
+                  data-cat="all"
+                  class="category-item cursor-pointer text-primary font-medium border-r-4 border-primary pr-3 py-2"
+                >
+                  All
+                </li>
+                <li
+                  data-cat="Web Design"
+                  class="category-item cursor-pointer text-gray-700 hover:text-black pr-3 py-2"
+                >
+                  Web Design
+                </li>
+                <li
+                  data-cat="UI/UX"
+                  class="category-item cursor-pointer text-gray-700 hover:text-black pr-3 py-2"
+                >
+                  UI/UX
+                </li>
+                <li
+                  data-cat="Branding"
+                  class="category-item cursor-pointer text-gray-700 hover:text-black pr-3 py-2"
+                >
+                  Branding Design
+                </li>
+                <li
+                  data-cat="Responsive"
+                  class="category-item cursor-pointer text-gray-700 hover:text-black pr-3 py-2"
+                >
+                  Responsive Design
+                </li>
+                <li
+                  data-cat="Mobile"
+                  class="category-item cursor-pointer text-gray-700 hover:text-black pr-3 py-2"
+                >
+                  Mobile Interface
+                </li>
+                <li
+                  data-cat="Web Dev"
+                  class="category-item cursor-pointer text-gray-700 hover:text-black pr-3 py-2"
+                >
+                  Web Development
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- Blog list -->
+          <div class="md:col-span-3 space-y-6">
+            <div id="blogContainer" class="space-y-10"></div>
+
+            <p id="noResult" class="text-center text-gray-500 hidden">
+              No blogs found.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal (Option A: centered popup) -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 modal-closed transition-opacity duration-300 px-3"
+    >
+      <div
+        id="modalCard"
+        class="relative w-full max-w-2xl bg-white rounded-2xl p-6 shadow-2xl transform transition-all duration-300 modal-scale-out"
+      >
+        <button
+          id="closeModal"
+          aria-label="Close"
+          class="absolute right-4 top-4 text-2xl text-slate-600 hover:text-black cursor-pointer"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="flex flex-col md:flex-row gap-6 mt-6">
+          <img
+            id="modalImg"
+            src=""
+            alt=""
+            class="w-full md:w-48 h-36 object-cover rounded-lg shadow"
+          />
+          <div class="flex-1">
+            <h3 id="modalTitle" class="text-2xl font-bold mb-2"></h3>
+            <p id="modalMeta" class="text-sm text-gray-500 mb-4"></p>
+            <div id="modalContent" class="text-gray-700 leading-relaxed"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /******************************
+       * Data: multiple blogs per category
+       ******************************/
+      const BLOGS = [
+        // === UI/UX ===
+        {
+          id: "u1",
+          title: "10 common UI design mistakes to avoid as a beginner.",
+          date: "10 Jul 2022",
+          read: "10 mins read",
+          img: "./assets/fig1.webp",
+          cat: "UI/UX",
+          excerpt:
+            "Learn the most common UI mistakes new designers make and how to avoid them.",
+          content:
+            "Full article content: UI mistakes and how to avoid them. Includes visual examples and practical guidelines.",
+        },
+        {
+          id: "u2",
+          title: "Microinteractions that boost UX",
+          date: "08 Jul 2022",
+          read: "6 mins read",
+          img: "./assets/ux.webp",
+          cat: "UI/UX",
+          excerpt:
+            "Small animations, big impact. Implement microinteractions users love.",
+          content:
+            "Microinteractions communicate states. This article includes examples & code patterns.",
+        },
+        {
+          id: "u3",
+          title: "Design Systems: building reusable UI",
+          date: "05 Jul 2022",
+          read: "12 mins read",
+          img: "./assets/ui.webp",
+          cat: "UI/UX",
+          excerpt: "Guide for creating scalable and consistent design systems.",
+          content:
+            "Design systems bring consistency. Covers tokens, libraries, versioning & governance.",
+        },
+
+        // === Web Design ===
+        {
+          id: "w1",
+          title: "Product research at every stage of design process",
+          date: "06 Jul 2022",
+          read: "8 mins read",
+          img: "./assets/pr.webp",
+          cat: "Web Design",
+          excerpt:
+            "Research powers better decisions from discovery to delivery.",
+          content:
+            "Covers user interviews, testing, synthesis & applying insights.",
+        },
+        {
+          id: "w2",
+          title: "Responsive layouts with modern UI trends",
+          date: "05 Jul 2022",
+          read: "6 mins read",
+          img: "./assets/rd.webp",
+          cat: "Web Design",
+          excerpt:
+            "Tips for modern responsive layouts using CSS grid & flexbox.",
+          content:
+            "Shares patterns, code samples and layout strategies for multi-device designs.",
+        },
+        {
+          id: "w3",
+          title: "Designing accessible color systems",
+          date: "02 Jul 2022",
+          read: "7 mins read",
+          img: "./assets/webco.webp",
+          cat: "Web Design",
+          excerpt: "Accessible contrast, palettes & color testing tools.",
+          content:
+            "Explains WCAG contrast, palette building, accessibility testing tools.",
+        },
+
+        // === Branding ===
+        {
+          id: "b1",
+          title: "Why flexible branding matters for businesses",
+          date: "10 Jul 2022",
+          read: "12 mins read",
+          img: "./assets/ba.webp",
+          cat: "Branding",
+          excerpt: "Flexible brand systems adapt across channels.",
+          content:
+            "Modular brand assets, voice, documentation and scalable design systems.",
+        },
+        {
+          id: "b2",
+          title: "Logo design process — from brief to vector",
+          date: "07 Jul 2022",
+          read: "9 mins read",
+          img: "./assets/loogo.webp",
+          cat: "Branding",
+          excerpt: "Step-by-step logo creation workflow.",
+          content:
+            "Covers research, sketching, vectorizing and exporting professional logos.",
+        },
+        {
+          id: "b3",
+          title: "Voice & tone guidelines for brands",
+          date: "03 Jul 2022",
+          read: "6 mins read",
+          img: "./assets/lg.webp",
+          cat: "Branding",
+          excerpt: "Crafting a consistent brand voice for digital products.",
+          content:
+            "Includes examples, templates and voice documentation approach.",
+        },
+
+        // === Responsive ===
+        {
+          id: "r1",
+          title: "Grid systems for responsive websites",
+          date: "11 Jul 2022",
+          read: "8 mins read",
+          img: "./assets/grid.webp",
+          cat: "Responsive",
+          excerpt: "Grid usage for predictable responsive layouts.",
+          content:
+            "Explains column grids, breakpoints and adaptive layout patterns.",
+        },
+        {
+          id: "r2",
+          title: "Adaptive vs responsive layouts",
+          date: "09 Jul 2022",
+          read: "7 mins read",
+          img: "./assets/d1.webp",
+          cat: "Responsive",
+          excerpt: "Choosing between adaptive and responsive strategies.",
+          content:
+            "Compare with examples, performance considerations & device strategies.",
+        },
+        {
+          id: "r3",
+          title: "Performance budgets for mobile",
+          date: "04 Jul 2022",
+          read: "6 mins read",
+          img: "./assets/d2.webp",
+          cat: "Responsive",
+          excerpt: "Speed optimization strategies for small screens.",
+          content:
+            "Covers audits, budgets, CI checks & optimization priorities.",
+        },
+
+        // === Mobile ===
+        {
+          id: "m1",
+          title: "How to design user-centric mobile apps",
+          date: "09 Jul 2022",
+          read: "7 mins read",
+          img: "./assets/d3.webp",
+          cat: "Mobile",
+          excerpt: "Principles of mobile-first UX.",
+          content:
+            "Simplified flows, reachability, accessibility and mobile patterns.",
+        },
+        {
+          id: "m2",
+          title: "Touch targets & ergonomics",
+          date: "07 Jul 2022",
+          read: "5 mins read",
+          img: "./assets/d4.webp",
+          cat: "Mobile",
+          excerpt: "Designing comfortable mobile interactions.",
+          content: "Finger-friendly sizes, spacing guidelines and ergonomics.",
+        },
+        {
+          id: "m3",
+          title: "Mobile performance: reduce jank",
+          date: "03 Jul 2022",
+          read: "9 mins read",
+          img: "./assets/d5.webp",
+          cat: "Mobile",
+          excerpt: "Improve responsiveness of mobile apps.",
+          content:
+            "Performance audits, prioritizing tasks and frontend optimization.",
+        },
+
+        // === Web Dev ===
+        {
+          id: "d1",
+          title: "Mastering JavaScript",
+          date: "12 Jul 2022",
+          read: "14 mins read",
+          img: "./assets/d6.webp",
+          cat: "Web Dev",
+          excerpt: "Deep dive into JS patterns & engine behaviors.",
+          content: "Patterns, memory mgmt, performance & modern features.",
+        },
+        {
+          id: "d2",
+          title: "Async Programming Tricks",
+          date: "10 Jul 2022",
+          read: "8 mins read",
+          img: "./assets/ser1.webp",
+          cat: "Web Dev",
+          excerpt: "Advanced async/await usage & tricks.",
+          content: "Event loop, microtasks, promises & async architecture.",
+        },
+        {
+          id: "d3",
+          title: "API Integration patterns",
+          date: "06 Jul 2022",
+          read: "9 mins read",
+          img: "./assets/ser2.webp",
+          cat: "Web Dev",
+          excerpt: "Better, safer API integrations.",
+          content: "Retry logic, caching, throttling & graceful failures.",
+        },
+      ];
+
+      /******************************
+       * Elements
+       ******************************/
+      const categoryEls = document.querySelectorAll(".category-item");
+      const searchInput = document.getElementById("searchInput");
+      const blogContainer = document.getElementById("blogContainer");
+      const noResult = document.getElementById("noResult");
+
+      const overlay = document.getElementById("overlay");
+      const modalCard = document.getElementById("modalCard");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalImg = document.getElementById("modalImg");
+      const modalMeta = document.getElementById("modalMeta");
+      const modalContent = document.getElementById("modalContent");
+      const closeModalBtn = document.getElementById("closeModal");
+
+      /******************************
+       * State
+       ******************************/
+      let activeCategory = "all";
+      let query = "";
+
+      /******************************
+       * Helpers
+       ******************************/
+      function formatDay(dateStr) {
+        return dateStr.split(" ")[0];
+      }
+
+      function renderList() {
+        blogContainer.innerHTML = "";
+        const q = query.trim().toLowerCase();
+
+        const filtered = BLOGS.filter((b) => {
+          const catMatch =
+            activeCategory === "all" ||
+            b.cat.toLowerCase() === activeCategory.toLowerCase();
+
+          const qMatch =
+            b.title.toLowerCase().includes(q) ||
+            b.excerpt.toLowerCase().includes(q) ||
+            b.content.toLowerCase().includes(q);
+
+          return catMatch && qMatch;
+        });
+
+        if (filtered.length === 0) {
+          noResult.classList.remove("hidden");
+          return;
+        } else {
+          noResult.classList.add("hidden");
+        }
+
+        filtered.forEach((blog) => {
+          const day = formatDay(blog.date);
+          const monthYear = blog.date.split(" ").slice(1).join(" ");
+
+          const html = `
+      <div class="flex items-start gap-6 border-b border-gray-200 pb-6">
+        <div class="min-w-[64px] text-center">
+          <div class="text-3xl font-bold text-slate-700">${day}</div>
+          <div class="text-xs text-gray-400">${monthYear}</div>
+        </div>
+
+        <div class='hidden md:block'>
+          <img src="${blog.img}" alt='blogs' class="w-28 h-20 object-cover rounded-md shadow-sm"/>
+        </div>
+
+        <div class="flex-1">
+          <h3 class="font-semibold text-lg text-slate-900 mb-1">${blog.title}</h3>
+          <div class="text-sm text-gray-500">${blog.read}</div>
+        </div>
+
+        <div class="flex items-center">
+          <button class="open-btn w-10 h-10 rounded-full bg-primary/10
+                         text-primary shadow-sm hover:scale-110 transition cursor-pointer"
+                  data-id="${blog.id}">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+      </div>
+      `;
+
+          blogContainer.insertAdjacentHTML("beforeend", html);
+        });
+
+        document.querySelectorAll(".open-btn").forEach((btn) => {
+          btn.addEventListener("click", () => openModal(btn.dataset.id));
+        });
+      }
+
+      /******************************
+       * Category click
+       ******************************/
+      categoryEls.forEach((el) => {
+        el.addEventListener("click", () => {
+          categoryEls.forEach((c) =>
+            c.classList.remove(
+              "text-[#ff6d63]",
+              "font-medium",
+              "border-r-4",
+              "border-[#ff6d63]"
+            )
+          );
+
+          el.classList.add(
+            "text-[#ff6d63]",
+            "font-medium",
+            "border-r-4",
+            "border-[#ff6d63]"
+          );
+
+          activeCategory = el.dataset.cat;
+          renderList();
+        });
+      });
+
+      /******************************
+       * Search
+       ******************************/
+      searchInput.addEventListener("input", (e) => {
+        query = e.target.value;
+        renderList();
+      });
+
+      /******************************
+       * Modal
+       ******************************/
+      function openModal(id) {
+        const blog = BLOGS.find((b) => b.id === id);
+        if (!blog) return;
+
+        modalTitle.textContent = blog.title;
+        modalImg.src = blog.img;
+        modalMeta.textContent = `${blog.date} • ${blog.read}`;
+        modalContent.textContent = blog.content;
+
+        overlay.classList.remove("modal-closed");
+        overlay.classList.add("modal-open");
+
+        modalCard.classList.remove("modal-scale-out");
+        modalCard.classList.add("modal-scale-in");
+
+        // document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        modalCard.classList.remove("modal-scale-in");
+        modalCard.classList.add("modal-scale-out");
+
+        overlay.classList.remove("modal-open");
+        overlay.classList.add("modal-closed");
+
+        setTimeout(() => {
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      closeModalBtn.addEventListener("click", closeModal);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeModal();
+      });
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !overlay.classList.contains("modal-closed")) {
+          closeModal();
+        }
+      });
+
+      /******************************
+       * Init
+       ******************************/
+      renderList();
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-10 px-3 overflow-hidden">
+      <div class="mx-auto text-center">
+        <!-- Name -->
+        <h2 class="text-3xl font-serif italic text-gray-900">
+          Mary Smith, web designer
+        </h2>
+
+        <!-- Tagline -->
+        <p class="text-gray-500 mt-2 text-lg">Excellence in digital creation</p>
+
+        <!-- Navigation Links -->
+        <div
+          class="flex flex-wrap justify-center gap-4 xsm:gap-10 mt-8 text-gray-700 text-lg"
+        >
+          <a href="./index.html" class="hover:text-primary transition"
+            >Home</a
+          >
+          <a href="./about.html" class="hover:text-primary transition"
+            >About</a
+          >
+          <a href="./service.html" class="hover:text-primary transition"
+            >Services</a
+          >
+          <a href="./blog.html" class="hover:text-primary transition"
+            >Blogs</a
+          >
+          <a href="./contact.html" class="hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center gap-6 mt-8">
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-linkedin-in text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-facebook-f text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-github text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-twitter text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-instagram text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+        </div>
+
+        <!-- Privacy -->
+        <p class="text-gray-600 text-sm py-8">Privacy & Legal</p>
+
+        <!-- Copyright -->
+        <p class="text-gray-500 text-sm py-4 border-t border-gray-400">
+          © <span id="year"></span> Mary Smith. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Auto-update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Aos Animation  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- mobile menu script -->
+    <script>
+      // Aos Animation Init
+      AOS.init({
+        duration: 800,
+        delay: 200, // default delay for all elements
+        once: false,
+        mirror: true,
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const links = mobileMenu.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Optional: close menu if clicked outside
+      window.addEventListener("click", (e) => {
+        if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+          homeMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

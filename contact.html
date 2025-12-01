@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+
+    <!-- meta tags -->
+    <meta name="title" content="Portfolio | Developer, Designer, Creator" />
+    <meta
+      name="description"
+      content="Personal Portfolio, a passionate developer creating modern web experiences. Explore my projects, skills, services, and ways to work together."
+    />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfolio" />
+    <meta
+      property="og:description"
+      content="Welcome to my personal portfolio! I build modern, fast, and user-friendly digital experiences."
+    />
+
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Aos Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS  -->
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <!-- Navbar -->
+    <style>
+      body {
+        font-family: "EB Garamond", serif;
+        overflow-x: hidden;
+      }
+
+      /* Hamburger animation */
+      .hamburger span {
+        display: block;
+        width: 1.5rem;
+        height: 0.125rem;
+        margin: 0.4rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: currentColor;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mobile menu slide + fade */
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        /* height: 100vh; */
+        transform: translateX(-100%);
+        /* overflow: hidden; */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        /* max-height: 1000px; */
+        /* enough for nav links */
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+
+  <body class="antialiased bg-white text-black font-primary">
+    <!-- Navbar  -->
+    <header class="sticky top-0 z-40 w-full mx-auto">
+      <div
+        class="flex items-center justify-between px-3 h-16 bg-white shadow-md backdrop-blur-2xl"
+      >
+        <!-- Logo -->
+        <a class="" href="./index.html">
+          <img class="h-8" src="./assets/logo.webp" alt="logo" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-5 text-sm font-medium"
+        >
+          <!-- Home with Dropdown -->
+          <div class="relative">
+            <!-- Parent Button -->
+            <button
+              class="relative text-primary inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+            >
+              <a href="./index.html">Home</a>
+              <i id="homeToggle" class="fa-solid fa-caret-down"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="homeMenu"
+              class="absolute hidden bg-white text-black backdrop-blur-2xl shadow-lg mt-2 rounded w-40 z-40"
+            >
+              <li>
+                <a href="./home/index.html" class="block px-4 py-2"> Home 2 </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <a
+            href="./about.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+
+          <!-- Services -->
+          <a
+            href="./service.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Services
+          </a>
+          <!-- Blogs -->
+          <a
+            href="./blog.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blogs
+          </a>
+          <!-- Contact -->
+          <a
+            href="./contact.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
+          <!-- Dashboard -->
+          <a
+            href="./dashboard.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- login -->
+        <div class="flex text-sm gap-4 font-medium">
+          <div class="relative items-center gap-6 lg:flex hidden">
+            <a
+              class="md:flex items-center gap-2 rounded-full px-6 py-2 text-white bg-primary text-sm transform hover:scale-95 transition duration-200 ease-out hidden"
+              href="./signin.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger"
+            class="hamburger cursor-pointer lg:hidden focus:outline-none"
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobileMenu" class="mobile-menu h-screen lg:hidden shadow-md">
+        <ul
+          class="flex flex-col space-y-4 p-3 text-sm font-medium h-screen md:w-1/2 bg-white backdrop-blur-2xl"
+        >
+          <!-- Home dropDown  -->
+          <div class="relative">
+            <button
+              class="flex items-center text-primary gap-1 w-full text-left lg:hidden"
+            >
+              <a href="./index.html">Home</a>
+              <i
+                id="mobileToggle"
+                class="fa-solid fa-caret-down cursor-pointer"
+              ></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="mobileLink"
+              class="hidden bg-white text-black mt-2 rounded w-full md:absolute"
+            >
+              <li>
+                <a href="./home/index.html" class="block px-2 py-2"> Home 2 </a>
+              </li>
+            </ul>
+          </div>
+          <!-- About -->
+          <li>
+            <a href="./about.html" class="nav-link block">About</a>
+          </li>
+          <!-- Services -->
+          <li>
+            <a href="./service.html" class="nav-link block">Services</a>
+          </li>
+          <!-- Blogs -->
+          <li>
+            <a href="./blog.html" class="nav-link block">Blogs</a>
+          </li>
+          <!-- Contact -->
+          <li>
+            <a href="./contact.html" class="nav-link block">Contact</a>
+          </li>
+          <!-- Dashboard -->
+          <li>
+            <a href="./dashboard.html" class="nav-link block">Dashboard</a>
+          </li>
+          <!-- login  -->
+          <li>
+            <a href="./signin.html" class="flex items-center gap-2 nav-link"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown script  -->
+      <script>
+        const homeToggle = document.getElementById("homeToggle");
+        const homeMenu = document.getElementById("homeMenu");
+
+        homeToggle.addEventListener("click", () => {
+          homeMenu.classList.toggle("hidden");
+        });
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileLink = document.getElementById("mobileLink");
+
+        // Home dropdown toggle (mobile only)
+        mobileToggle.addEventListener("click", () => {
+          mobileLink.classList.toggle("hidden");
+        });
+
+        // Optional: close menu if clicked outside
+        window.addEventListener("click", (e) => {
+          if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+            homeMenu.classList.add("hidden");
+          }
+        });
+      </script>
+    </header>
+
+    <!-- HEADER  -->
+    <main class="text-black py-20 text-center">
+      <h1 class="text-5xl font-extrabold tracking-wide">Contact Us</h1>
+
+      <div class="mt-4 text-sm flex justify-center gap-2 opacity-80">
+        <span>Home</span>
+        <span>›</span>
+        <span>Contact</span>
+      </div>
+    </main>
+
+    <!-- TOP INFO CARDS -->
+    <section class=" mx-auto px-4 -mt-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <h3 class="text-xl font-semibold mb-1">My Articles</h3>
+          <p class="text-gray-500 text-sm">Become an industry expert</p>
+          <a href="./blog.html" class="mt-3 inline-block text-primary font-medium"
+            >Read Articles</a
+          >
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <h3 class="text-xl font-semibold mb-1">FAQ’s</h3>
+          <p class="text-gray-500 text-sm">Become an industry expert</p>
+          <a href="#faq-sec" class="mt-3 inline-block text-primary font-medium"
+            >Check FAQ’s</a
+          >
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition"
+        >
+          <h3 class="text-xl font-semibold mb-1">Direct email</h3>
+          <p class="text-gray-500 text-sm">Become an industry expert</p>
+          <a href="./404.html" class="mt-3 inline-block text-primary font-medium"
+            >Send An Email</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!--  CONTACT FORM  -->
+    <section class="max-w-4xl mx-auto px-4 py-20">
+      <h2 class="text-3xl font-bold">Lets Talk</h2>
+      <p class="text-gray-500 mt-1 text-sm">
+        Got a project in mind? Fill in the form or send us.
+      </p>
+
+      <form id="contactForm" class="mt-10 space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <input
+            id="first"
+            type="text"
+            placeholder="First name"
+            class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+            required
+          />
+
+          <input
+            id="last"
+            type="text"
+            placeholder="Last name"
+            class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+            required
+          />
+        </div>
+
+        <input
+          id="email"
+          type="email"
+          pattern=".+@gmail\.com$"
+          title="Email must end with @gmail.com"
+          placeholder="Email"
+          class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+          required
+        />
+
+        <select
+          id="budget"
+          class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+          required
+        >
+          <option value="">Select your budget</option>
+          <option>$500 - $1,000</option>
+          <option>$1,000 - $5,000</option>
+          <option>$5,000 - $10,000</option>
+        </select>
+
+        <textarea
+          id="message"
+          rows="6"
+          placeholder="Your message"
+          class="w-full p-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-primary outline-none"
+          required
+        ></textarea>
+
+        <button
+          type="submit"
+          class="px-8 py-3 bg-[#ff6e6e] hover:bg-[#ff4b4b] text-white font-semibold rounded-md transition"
+        >
+          Send Message
+        </button>
+      </form>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq-sec" class="scroll-mt-20 px-3 py-6 md:py-12 overflow-hidden">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl text-center font-bold mb-8">
+        Frequently Asked <span class="text-primary">Questions</span>
+      </h1>
+      <p
+        class="text-sm md:text-lg text-center text-gray-600 max-w-2xl mx-auto mb-10"
+      >
+        Here are answers to the most common questions people ask about my work.
+      </p>
+
+      <div class="max-w-5xl mx-auto space-y-5">
+        <!-- FAQ ITEM -->
+        <div
+          class="faq-item bg-white shadow-sm border rounded-2xl p-5 cursor-pointer transition hover:shadow-md"
+        >
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg md:text-xl font-semibold">What services do you provide?</h3>
+            <span class="faq-icon text-2xl text-gray-600 transition">+</span>
+          </div>
+          <div
+            class="faq-content overflow-hidden h-0 transition-all duration-500 ease-in-out"
+          >
+            <p class="mt-3 text-gray-600 text-sm md:text-lg">
+              I provide UI/UX design, website development, dashboard design,
+              portfolio sites, premium landing pages, and interactive
+              animations.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ITEM -->
+        <div
+          class="faq-item bg-white shadow-sm border rounded-2xl p-5 cursor-pointer transition hover:shadow-md"
+        >
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg md:text-xl font-semibold">How long does a project take?</h3>
+            <span class="faq-icon text-2xl text-gray-600 transition">+</span>
+          </div>
+          <div
+            class="faq-content overflow-hidden h-0 transition-all duration-500 ease-in-out"
+          >
+            <p class="mt-3 text-gray-600 text-sm md:text-lg">
+              Regular projects take around 3–14 days depending on complexity.
+              Premium dashboards and animations may take a little longer.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ITEM -->
+        <div
+          class="faq-item bg-white shadow-sm border rounded-2xl p-5 cursor-pointer transition hover:shadow-md"
+        >
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg md:text-xl font-semibold">Do you offer revisions?</h3>
+            <span class="faq-icon text-2xl text-gray-600 transition">+</span>
+          </div>
+          <div
+            class="faq-content overflow-hidden h-0 transition-all duration-500 ease-in-out"
+          >
+            <p class="mt-3 text-gray-600 text-sm md:text-lg">
+              Yes! I provide revisions to ensure the final result is perfect.
+              Premium clients get unlimited revisions.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ITEM -->
+        <div
+          class="faq-item bg-white shadow-sm border rounded-2xl p-5 cursor-pointer transition hover:shadow-md"
+        >
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg md:text-xl font-semibold">Do you provide maintenance?</h3>
+            <span class="faq-icon text-2xl text-gray-600 transition">+</span>
+          </div>
+          <div
+            class="faq-content overflow-hidden h-0 transition-all duration-500 ease-in-out"
+          >
+            <p class="mt-3 text-gray-600 text-sm md:text-lg">
+              Yes, I provide monthly & yearly maintenance including bug fixes,
+              updates, new features, and performance optimization.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const items = document.querySelectorAll(".faq-item");
+
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          const content = item.querySelector(".faq-content");
+          const icon = item.querySelector(".faq-icon");
+
+          // Close other FAQs smoothly
+          items.forEach((other) => {
+            if (other !== item) {
+              let c = other.querySelector(".faq-content");
+              let i = other.querySelector(".faq-icon");
+              c.style.height = 0;
+              i.textContent = "+";
+            }
+          });
+
+          // Toggle current item height animation
+          if (content.style.height === "0px" || content.style.height === "") {
+            content.style.height = content.scrollHeight + "px";
+            icon.textContent = "–";
+          } else {
+            content.style.height = 0;
+            icon.textContent = "+";
+          }
+        });
+      });
+    </script>
+
+    <!--  JAVASCRIPT  -->
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Clear form
+          document.getElementById("contactForm").reset();
+
+          // Redirect
+          setTimeout(() => {
+            window.location.href = "./404.html";
+          }, 100);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-10 px-3 overflow-hidden">
+      <div class="mx-auto text-center">
+        <!-- Name -->
+        <h2 class="text-3xl font-serif italic text-gray-900">
+          Mary Smith, web designer
+        </h2>
+
+        <!-- Tagline -->
+        <p class="text-gray-500 mt-2 text-lg">Excellence in digital creation</p>
+
+        <!-- Navigation Links -->
+        <div
+          class="flex flex-wrap justify-center gap-4 xsm:gap-10 mt-8 text-gray-700 text-lg"
+        >
+          <a href="./index.html" class="hover:text-primary transition"
+            >Home</a
+          >
+          <a href="./about.html" class="hover:text-primary transition"
+            >About</a
+          >
+          <a href="./service.html" class="hover:text-primary transition"
+            >Services</a
+          >
+          <a href="./blog.html" class="hover:text-primary transition"
+            >Blogs</a
+          >
+          <a href="./contact.html" class="hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center gap-6 mt-8">
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-linkedin-in text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-facebook-f text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-github text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-twitter text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-instagram text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+        </div>
+
+        <!-- Privacy -->
+        <p class="text-gray-600 text-sm py-8">Privacy & Legal</p>
+
+        <!-- Copyright -->
+        <p class="text-gray-500 text-sm py-4 border-t border-gray-400">
+          © <span id="year"></span> Mary Smith. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Auto-update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Aos Animation  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- mobile menu script -->
+    <script>
+      // Aos Animation Init
+      AOS.init({
+        duration: 800,
+        delay: 200, // default delay for all elements
+        once: false,
+        mirror: true,
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const links = mobileMenu.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Optional: close menu if clicked outside
+      window.addEventListener("click", (e) => {
+        if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+          homeMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>

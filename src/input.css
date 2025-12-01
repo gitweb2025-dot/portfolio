@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-primary: "EB Garamond", serif;
+  --font-secondary: "Rajdhani", sans-serif;
+  --font-tertiary: "Spectral", serif;
+  --font-fourtery: "Libre Baskerville", serif;
+  --font-fifthery: "Josefin Sans", sans-serif;
+  --breakpoint-xsm: 380px;
+  --breakpoint-xsmd: 440px;
+  --breakpoint-smmd: 560px;
+  --breakpoint-lgmd: 840px;
+  --color-primary: #ff6d63;
+  --color-secondary: #141414;
+  --color-tertiary: #;
+}

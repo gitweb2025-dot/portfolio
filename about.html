@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+
+    <!-- meta tags -->
+    <meta name="title" content="Portfolio | Developer, Designer, Creator" />
+    <meta
+      name="description"
+      content="Personal Portfolio, a passionate developer creating modern web experiences. Explore my projects, skills, services, and ways to work together."
+    />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Portfolio" />
+    <meta
+      property="og:description"
+      content="Welcome to my personal portfolio! I build modern, fast, and user-friendly digital experiences."
+    />
+
+    <!-- Font Awesome Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Aos Cdn Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Rajdhani:wght@300;400;500;600;700&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS  -->
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <!-- Navbar -->
+    <style>
+      body {
+        font-family: "EB Garamond", serif;
+        overflow-x: hidden;
+      }
+
+      /* Hamburger animation */
+      .hamburger span {
+        display: block;
+        width: 1.5rem;
+        height: 0.125rem;
+        margin: 0.4rem auto;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: currentColor;
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Mobile menu slide + fade */
+      .mobile-menu {
+        max-height: 0;
+        opacity: 0;
+        /* height: 100vh; */
+        transform: translateX(-100%);
+        /* overflow: hidden; */
+        transition: all 0.8s ease-in-out;
+      }
+
+      .mobile-menu.open {
+        /* max-height: 1000px; */
+        /* enough for nav links */
+        opacity: 1;
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+
+  <body class="antialiased bg-white text-black font-primary">
+    <!-- Navbar  -->
+    <header class="sticky top-0 z-40 w-full mx-auto">
+      <div
+        class="flex items-center justify-between px-3 h-16 bg-white shadow-md backdrop-blur-2xl"
+      >
+        <!-- Logo -->
+        <a class="" href="./index.html">
+          <img class="h-8" src="./assets/logo.webp" alt="logo" />
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav
+          class="hidden md:flex items-center space-x-2 md:space-x-3 lg:space-x-5 text-sm font-medium"
+        >
+          <!-- Home with Dropdown -->
+          <div class="relative">
+            <!-- Parent Button -->
+            <button
+              class="relative text-primary inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+            >
+              <a href="./index.html">Home</a>
+              <i id="homeToggle" class="fa-solid fa-caret-down"></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="homeMenu"
+              class="absolute hidden bg-white text-black backdrop-blur-2xl shadow-lg mt-2 rounded w-40 z-40"
+            >
+              <li>
+                <a href="./home/index.html" class="block px-4 py-2"> Home 2 </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- About -->
+          <a
+            href="./about.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            About
+          </a>
+
+          <!-- Services -->
+          <a
+            href="./service.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Services
+          </a>
+          <!-- Blogs -->
+          <a
+            href="./blog.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Blogs
+          </a>
+          <!-- Contact -->
+          <a
+            href="./contact.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Contact
+          </a>
+          <!-- Dashboard -->
+          <a
+            href="./dashboard.html"
+            class="relative inline-block after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+          >
+            Dashboard
+          </a>
+        </nav>
+
+        <!-- login -->
+        <div class="flex text-sm gap-4 font-medium">
+          <div class="relative items-center gap-6 lg:flex hidden">
+            <a
+              class="md:flex items-center gap-2 rounded-full px-6 py-2 text-white bg-primary text-sm transform hover:scale-95 transition duration-200 ease-out hidden"
+              href="./signin.html"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login
+            </a>
+          </div>
+
+          <!-- Hamburger -->
+          <button
+            id="hamburger"
+            class="hamburger cursor-pointer lg:hidden focus:outline-none"
+            aria-label="Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav id="mobileMenu" class="mobile-menu h-screen lg:hidden shadow-md">
+        <ul
+          class="flex flex-col space-y-4 p-3 text-sm font-medium h-screen md:w-1/2 bg-white backdrop-blur-2xl"
+        >
+          <!-- Home dropDown  -->
+          <div class="relative">
+            <button
+              class="flex items-center text-primary gap-1 w-full text-left lg:hidden"
+            >
+              <a href="./index.html">Home</a>
+              <i
+                id="mobileToggle"
+                class="fa-solid fa-caret-down cursor-pointer"
+              ></i>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <ul
+              id="mobileLink"
+              class="hidden bg-white text-black mt-2 rounded w-full md:absolute"
+            >
+              <li>
+                <a href="./home/index.html" class="block px-2 py-2"> Home 2 </a>
+              </li>
+            </ul>
+          </div>
+          <!-- About -->
+          <li>
+            <a href="./about.html" class="nav-link block">About</a>
+          </li>
+          <!-- Services -->
+          <li>
+            <a href="./service.html" class="nav-link block">Services</a>
+          </li>
+          <!-- Blogs -->
+          <li>
+            <a href="./blog.html" class="nav-link block">Blogs</a>
+          </li>
+          <!-- Contact -->
+          <li>
+            <a href="./contact.html" class="nav-link block">Contact</a>
+          </li>
+          <!-- Dashboard -->
+          <li>
+            <a href="./dashboard.html" class="nav-link block">Dashboard</a>
+          </li>
+          <!-- login  -->
+          <li>
+            <a href="./signin.html" class="flex items-center gap-2 nav-link"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                />
+              </svg>
+              Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown script  -->
+      <script>
+        const homeToggle = document.getElementById("homeToggle");
+        const homeMenu = document.getElementById("homeMenu");
+
+        homeToggle.addEventListener("click", () => {
+          homeMenu.classList.toggle("hidden");
+        });
+
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileLink = document.getElementById("mobileLink");
+
+        // Home dropdown toggle (mobile only)
+        mobileToggle.addEventListener("click", () => {
+          mobileLink.classList.toggle("hidden");
+        });
+
+        // Optional: close menu if clicked outside
+        window.addEventListener("click", (e) => {
+          if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+            homeMenu.classList.add("hidden");
+          }
+        });
+      </script>
+    </header>
+
+    <section
+      class="w-full mx-auto px-3 py-16 grid md:grid-cols-2 gap-6 md:gap-12 overflow-hidden"
+    >
+      <!-- Left Column -->
+      <div>
+        <h1
+          data-aos="zoom-in-right"
+          data-aos-delay="50"
+          class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+        >
+          I'm currently working <br />
+          as a. <span class="text-red-500">freelancer</span>
+        </h1>
+
+        <p
+          data-aos="zoom-in-right"
+          data-aos-delay="100"
+          class="text-gray-600 mt-6 max-w-md"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
+          et magnis dis parturient montes, nascetur ridiculus mus.
+        </p>
+
+        <!-- Image -->
+        <div data-aos="zoom-in-right" data-aos-delay="150" class="mt-10">
+          <div class="rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="./assets/hero_img.webp"
+              alt="Profile Placeholder"
+              class="w-full object-contain h-[420px]"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="md:py-10">
+        <p
+          data-aos="zoom-in-left"
+          data-aos-delay="70"
+          class="text-gray-600 mb-6 max-w-md"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
+          et magnis
+        </p>
+
+        <h2
+          data-aos="zoom-in-left"
+          data-aos-delay="120"
+          class="text-2xl font-bold text-gray-900 mb-6"
+        >
+          In summary
+        </h2>
+
+        <div class="space-y-6">
+          <div data-aos="zoom-in-left" data-aos-delay="170">
+            <p class="text-gray-400 text-sm">Nickname</p>
+            <p class="text-gray-900 font-semibold">John</p>
+          </div>
+
+          <div data-aos="zoom-in-left" data-aos-delay="220">
+            <p class="text-gray-400 text-sm">Nationality</p>
+            <p class="text-gray-900 font-semibold">American</p>
+          </div>
+
+          <div data-aos="zoom-in-left" data-aos-delay="270">
+            <p class="text-gray-400 text-sm">Current Location</p>
+            <p class="text-gray-900 font-semibold">
+              Deer Trail, CO 80105, United States
+            </p>
+          </div>
+
+          <div data-aos="zoom-in-left" data-aos-delay="300">
+            <p class="text-gray-400 text-sm">Education</p>
+            <p class="text-gray-900 font-semibold">
+              MBA in Computer Science Engineering
+            </p>
+          </div>
+
+          <div data-aos="zoom-in-left" data-aos-delay="320">
+            <p class="text-gray-400 text-sm">Hobby</p>
+            <p class="text-gray-900 font-semibold">Gardening</p>
+          </div>
+
+          <div data-aos="zoom-in-left" data-aos-delay="370">
+            <p class="text-gray-400 text-sm">Interests</p>
+            <p class="text-gray-900 font-semibold">
+              Traveling, Cricket, Football, Design, Reading Book, Cooking,
+              Biking, Excercise
+            </p>
+          </div>
+
+          <div data-aos="zoom-in-left" data-aos-delay="400">
+            <p class="text-gray-400 text-sm">Email</p>
+            <p class="text-gray-900 font-semibold">name@gmail.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- I'm loving it -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-20 overflow-hidden">
+      <!-- Heading -->
+      <div class="flex flex-wrap items-start justify-between gap-5">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+          I'm great in what I do <br />
+          and <span class="text-red-500">I'm loving it</span>
+        </h1>
+
+        <a
+          href="./contact.html"
+          class="text-red-500 font-medium flex items-center gap-2 hover:underline"
+        >
+          Hire Me
+          <span>↗</span>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-16 mt-16">
+        <!-- LEFT: EDUCATION -->
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">Education</h2>
+
+          <div class="space-y-12 relative">
+            <!-- Timeline Line -->
+            <div
+              class="absolute left-[18px] top-0 bottom-0 w-0.5 bg-red-200"
+            ></div>
+
+            <!-- Item -->
+            <div class="flex gap-6 relative">
+              <div class="relative">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-white shadow rounded-full border border-red-300"
+                >
+                  🎓
+                </div>
+              </div>
+
+              <div>
+                <p class="text-gray-500 text-sm">Harvard University</p>
+                <p class="text-gray-900 font-semibold">
+                  MBA in CSE (2015 - 2016)
+                </p>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="flex gap-6 relative">
+              <div class="relative">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-white shadow rounded-full border border-red-300"
+                >
+                  🎓
+                </div>
+              </div>
+
+              <div>
+                <p class="text-gray-500 text-sm">Harvard University</p>
+                <p class="text-gray-900 font-semibold">
+                  B.Sc in CSE (2010 - 2014)
+                </p>
+              </div>
+            </div>
+
+            <!-- Item -->
+            <div class="flex gap-6 relative">
+              <div class="relative">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-white shadow rounded-full border border-red-300"
+                >
+                  🎓
+                </div>
+              </div>
+
+              <div>
+                <p class="text-gray-500 text-sm">Harvard University</p>
+                <p class="text-gray-900 font-semibold">
+                  Secondary School (2002 - 2009)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: SKILLS -->
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-8">Skills</h2>
+
+          <div class="space-y-8">
+            <!-- Skill -->
+            <div>
+              <div class="flex justify-between">
+                <p class="font-medium text-gray-800">Communication</p>
+                <span class="text-gray-500 text-sm">95%</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 mt-2 rounded-full">
+                <div class="h-2 bg-indigo-700 rounded-full w-[95%]"></div>
+              </div>
+            </div>
+
+            <!-- Skill -->
+            <div>
+              <div class="flex justify-between">
+                <p class="font-medium text-gray-800">Problem Solving</p>
+                <span class="text-gray-500 text-sm">70%</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 mt-2 rounded-full">
+                <div class="h-2 bg-indigo-700 rounded-full w-[70%]"></div>
+              </div>
+            </div>
+
+            <!-- Skill -->
+            <div>
+              <div class="flex justify-between">
+                <p class="font-medium text-gray-800">Web Application</p>
+                <span class="text-gray-500 text-sm">90%</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 mt-2 rounded-full">
+                <div class="h-2 bg-indigo-700 rounded-full w-[90%]"></div>
+              </div>
+            </div>
+
+            <!-- Skill -->
+            <div>
+              <div class="flex justify-between">
+                <p class="font-medium text-gray-800">
+                  Algorithm & Data Structure
+                </p>
+                <span class="text-gray-500 text-sm">75%</span>
+              </div>
+              <div class="w-full bg-gray-200 h-2 mt-2 rounded-full">
+                <div class="h-2 bg-indigo-700 rounded-full w-[75%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Happy Client -->
+    <section class="w-full max-w-7xl mx-auto px-6 py-20">
+      <!-- Top label -->
+      <p
+        data-aos="zoom-in"
+        data-aos-delay="50"
+        class="text-center text-sm text-indigo-600 flex items-center justify-center gap-2 mb-3"
+      >
+        Happy Client
+        <span>📤</span>
+      </p>
+
+      <!-- Heading -->
+      <h2
+        data-aos="zoom-in"
+        data-aos-delay="70"
+        class="text-center text-4xl md:text-5xl font-bold text-gray-900 leading-tight"
+      >
+        I work with over 150+ <br />
+        <span class="text-red-500">happy clients</span>
+      </h2>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mt-16">
+        <!-- Card 1 -->
+        <div data-aos="zoom-in" data-aos-delay="50" class="group">
+          <div
+            class="rounded-2xl p-8 flex items-center justify-center bg-[#00144C] shadow-md group-hover:scale-[1.03] transition"
+          >
+            <span class="text-white text-2xl font-semibold">Border</span>
+          </div>
+          <p class="text-center mt-3 text-gray-700 font-medium">Border</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div data-aos="zoom-in" data-aos-delay="70" class="group">
+          <div
+            class="rounded-2xl p-8 flex items-center justify-center bg-[#B6E4B1] shadow-md group-hover:scale-[1.03] transition"
+          >
+            <span class="text-green-800 text-2xl font-semibold">Rise</span>
+          </div>
+          <p class="text-center mt-3 text-gray-700 font-medium">Rise</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div data-aos="zoom-in" data-aos-delay="90" class="group">
+          <div
+            class="rounded-2xl p-8 flex items-center justify-center bg-[#F9DCC5] shadow-md group-hover:scale-[1.03] transition"
+          >
+            <span class="text-orange-700 text-2xl font-semibold">Ebooks</span>
+          </div>
+          <p class="text-center mt-3 text-gray-700 font-medium">eBook</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div data-aos="zoom-in" data-aos-delay="110" class="group">
+          <div
+            class="rounded-2xl p-8 flex items-center justify-center bg-[#2ECC91] shadow-md group-hover:scale-[1.03] transition"
+          >
+            <span class="text-white text-2xl font-semibold">Doctor+</span>
+          </div>
+          <p class="text-center mt-3 text-gray-700 font-medium">Doctor Plus</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div data-aos="zoom-in" data-aos-delay="130" class="group">
+          <div
+            class="rounded-2xl p-8 flex items-center justify-center bg-[#FF4A6E] shadow-md group-hover:scale-[1.03] transition"
+          >
+            <span class="text-white text-2xl font-semibold">PinPoint</span>
+          </div>
+          <p class="text-center mt-3 text-gray-700 font-medium">Pinpoint</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-10 px-3 overflow-hidden">
+      <div class="mx-auto text-center">
+        <!-- Name -->
+        <h2 class="text-3xl font-serif italic text-gray-900">
+          Mary Smith, web designer
+        </h2>
+
+        <!-- Tagline -->
+        <p class="text-gray-500 mt-2 text-lg">Excellence in digital creation</p>
+
+        <!-- Navigation Links -->
+        <div
+          class="flex flex-wrap justify-center gap-4 xsm:gap-10 mt-8 text-gray-700 text-lg"
+        >
+          <a href="./index.html" class="hover:text-primary transition">Home</a>
+          <a href="./about.html" class="hover:text-primary transition">About</a>
+          <a href="./service.html" class="hover:text-primary transition"
+            >Services</a
+          >
+          <a href="./blog.html" class="hover:text-primary transition">Blogs</a>
+          <a href="./contact.html" class="hover:text-primary transition"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex justify-center gap-6 mt-8">
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-linkedin-in text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-facebook-f text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-github text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-twitter text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+
+          <a
+            href="./404.html"
+            class="p-2 rounded-md border border-gray-300 hover:border-primary transition"
+          >
+            <i
+              class="fa-brands fa-instagram text-xl text-gray-700 hover:text-primary transition"
+            ></i>
+          </a>
+        </div>
+
+        <!-- Privacy -->
+        <p class="text-gray-600 text-sm py-8">Privacy & Legal</p>
+
+        <!-- Copyright -->
+        <p class="text-gray-500 text-sm py-4 border-t border-gray-400">
+          © <span id="year"></span> Mary Smith. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Auto-update copyright year
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Aos Animation  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- mobile menu script -->
+    <script>
+      // Aos Animation Init
+      AOS.init({
+        duration: 800,
+        delay: 200, // default delay for all elements
+        once: false,
+        mirror: true,
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const links = mobileMenu.querySelectorAll(".nav-link");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Optional: close menu if clicked outside
+      window.addEventListener("click", (e) => {
+        if (!homeToggle.contains(e.target) && !homeMenu.contains(e.target)) {
+          homeMenu.classList.add("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
