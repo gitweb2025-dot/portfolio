@@ -2281,9 +2281,19 @@
       outline-style: none;
     }
   }
+  .xsm\:block {
+    @media (width >= 380px) {
+      display: block;
+    }
+  }
   .xsm\:gap-10 {
     @media (width >= 380px) {
       gap: calc(var(--spacing) * 10);
+    }
+  }
+  .sm\:block {
+    @media (width >= 40rem) {
+      display: block;
     }
   }
   .sm\:grid {
