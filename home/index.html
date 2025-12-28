@@ -46,6 +46,14 @@
       rel="stylesheet"
     />
 
+    <!-- gsap -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
+
     <!-- Tailwind CSS  -->
     <link rel="stylesheet" href="../src/output.css" />
 
@@ -108,7 +116,7 @@
     <!-- Navbar  -->
     <header class="sticky top-0 z-40 w-full mx-auto">
       <div
-        class="flex items-center justify-between px-3 h-16 bg-white shadow-md backdrop-blur-2xl"
+        class="flex items-center justify-between px-4 md:px-8 lg:px-12 h-16 bg-white shadow-md backdrop-blur-2xl"
       >
         <!-- Logo -->
         <a class="" href="./index.html">
@@ -312,63 +320,305 @@
       </script>
     </header>
 
-    <!-- home -->
-    <main class="w-full px-3 py-10 flex items-center overflow-hidden">
-      <div class="mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 items-center">
-        <!-- RIGHT IMAGE -->
-        <div
-          data-aos="fade-right"
-          data-aos-delay="70"
-          class="flex justify-center md:justify-end shadow-2xl rounded-2xl"
-        >
-          <img
-            src="../assets/profile1.webp"
-            class="w-full max-w-xl lg:h-[500px] rounded-2xl object-contain"
-            alt="Portfolio Person"
-          />
-        </div>
-
-        <!-- LEFT CONTENT -->
-        <div class="space-y-6">
-          <p
-            data-aos="zoom-in-right"
-            data-aos-delay="70"
-            class="tracking-[0.3em] text-sm text-gray-600"
+    <!-- home  -->
+    <main
+      class="hero-section px-4 md:px-8 lg:px-12 py-6 md:py-16 bg-black text-white overflow-hidden flex items-center"
+    >
+      <div class="mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <!-- LEFT -->
+        <div class="hero-left space-y-8">
+          <span
+            class="hero-tag text-primary text-sm tracking-widest font-semibold"
           >
-            WELCOME TO MY WEBSITE
-          </p>
+            WELCOME TO MY WORLD
+          </span>
 
           <h1
-            data-aos="zoom-in-right"
-            data-aos-delay="90"
-            class="text-4xl md:text-6xl font-bold leading-tight"
+            class="hero-title text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight"
           >
-            Hi, I'm <span class="text-[#d77f6e]">Mary</span><br />
-            a <span id="typewriter" class="border-r-4 border-black pr-2"></span>
+            I’m Jane Cooper a <br />
+            <span class="text-primary">
+              <span id="typewriter"></span>
+            </span>
+
+            <span class="cursor animate-pulse">|</span>
           </h1>
 
-          <p
-            data-aos="zoom-in-right"
-            data-aos-delay="110"
-            class="text-gray-600 max-w-xl leading-relaxed"
-          >
-            I am a website designer with a strong focus in UI/UX design. I love
-            to get new experiences and always learn from my surroundings. I'm
-            looking forward to any opportunities and challenges.
+          <p class="hero-desc text-gray-400 max-w-lg">
+            A personal portfolio is a collection of your work, achievements, and
+            skills that highlights your abilities and professional growth. It
+            serves us
           </p>
 
-          <a
-            href="./404.html"
-            class="inline-block px-6 py-3 bg-[#d77f6e] text-white rounded-lg font-semibold shadow-md hover:shadow-xl hover:opacity-90 transition"
-          >
-            My Resume
-          </a>
+          <div class="hero-social flex items-center gap-4">
+            <span class="text-sm text-gray-400">Find me on</span>
+            <a href="./404.html" class="social"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="./404.html" class="social"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="./404.html" class="social"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="./404.html" class="social"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="hero-right relative">
+          <div class="hero-img-wrapper relative">
+            <img
+              src="../assets/profile1.webp"
+              alt="hero"
+              class="hero-img rounded-xl relative z-10 h-[400px] w-full object-contain"
+            />
+            <span
+              class="hero-name absolute right-4 top-1/2 -translate-y-1/2 rotate-90 text-gray-400 tracking-widest"
+            >
+              JANE COOPER
+            </span>
+          </div>
         </div>
       </div>
     </main>
 
+    <style>
+      .social {
+        width: 38px;
+        height: 38px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+      }
+
+      .social:hover {
+        background: #ff6d63;
+      }
+
+      .cursor {
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        50%,
+        100% {
+          opacity: 1;
+        }
+        25%,
+        75% {
+          opacity: 0;
+        }
+      }
+    </style>
+
+    <script>
+      const words = [
+        "UI/UX Designer",
+        "Web Developer",
+        "Product Designer",
+        "Freelancer",
+        "Creative Thinker",
+      ];
+
+      const el = document.getElementById("typewriter");
+
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      const typingSpeed = 90;
+      const deletingSpeed = 50;
+      const holdTime = 1200;
+
+      function typeLoop() {
+        const currentWord = words[wordIndex];
+
+        if (!isDeleting) {
+          el.textContent = currentWord.slice(0, ++charIndex);
+          if (charIndex === currentWord.length) {
+            setTimeout(() => (isDeleting = true), holdTime);
+          }
+        } else {
+          el.textContent = currentWord.slice(0, --charIndex);
+          if (charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+          }
+        }
+
+        const speed = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(typeLoop, speed);
+      }
+
+      typeLoop();
+    </script>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const heroTL = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      heroTL
+        .from(".hero-tag", { y: 120, opacity: 0, duration: 0.9 })
+        .from(".hero-title", { y: 160, opacity: 0, duration: 1 }, "-=0.3")
+        .from(".hero-desc", { y: 130, opacity: 0, duration: 0.7 }, "-=0.4")
+        .from(".hero-social", { y: 120, opacity: 0, duration: 0.6 }, "-=0.4")
+        .from(".hero-img", { scale: 0.85, opacity: 0, duration: 1 }, "-=0.8")
+        .from(".hero-name", { x: 140, opacity: 0, duration: 0.7 }, "-=0.6");
+
+      // floating life on image
+      gsap.to(".hero-img", {
+        y: -12,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    </script>
+
+    <!-- About -->
+    <section
+      class="about-section px-4 md:px-8 lg:px-12 py-24 bg-white overflow-hidden"
+    >
+      <div class="mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <!-- LEFT -->
+        <div class="relative flex flex-col justify-end gap-8 w-full h-full">
+          <div>
+            <img
+              src="../assets/profile2.webp"
+              alt="card"
+              class="absolute bottom-0 right-0 object-contain w-full h-full z-20 abt-img"
+            />
+          </div>
+          <div
+            class="exp-card bg-white rounded-2xl shadow-xl p-10 w-64 text-center z-10"
+          >
+            <h2 class="text-5xl font-extrabold">10+</h2>
+            <p class="mt-4 text-xl font-semibold">Years Of<br />Experience</p>
+          </div>
+
+          <div
+            class="skill-card bg-white rounded-xl shadow-lg p-6 flex items-center gap-5 w-72 z-30"
+          >
+            <div
+              class="w-14 h-14 rounded-full border-2 border-primary flex items-center justify-center text-primary text-xl"
+            >
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+              <h4 class="font-semibold">Ui/Ux Design</h4>
+              <span class="text-sm text-gray-500">241 Projects</span>
+            </div>
+          </div>
+
+          <div
+            class="glow-circle absolute w-72 h-72 bg-primary/40 blur-[120px] rounded-full -left-24 top-24"
+          ></div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="about-right">
+          <span class="about-label text-primary font-semibold tracking-widest"
+            >ABOUT ME</span
+          >
+
+          <h2 class="about-title text-4xl font-extrabold leading-tight mt-4">
+            Boost Business Strategic<br />Solutions with Us
+          </h2>
+
+          <p class="about-desc text-gray-500 mt-6 max-w-xl">
+            Business consulting consultants provide expert advice and guide
+            businesses to help them improve their performance, efficiency, and
+            organizational
+          </p>
+
+          <div class="grid lg:grid-cols-2 gap-6 mt-10">
+            <div class="service-card shadow rounded-xl p-6">
+              <div
+                class="service-icon w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mb-4"
+              >
+                <i class="fa-solid fa-pen-nib"></i>
+              </div>
+              <h4 class="font-semibold">Business Solutions</h4>
+              <p class="text-sm text-gray-500 mt-2">
+                Each one showcases my approach and dedication to detail,
+                creativity
+              </p>
+            </div>
+
+            <div
+              class="service-card border border-primary rounded-xl p-6 bg-gray-50"
+            >
+              <div
+                class="service-icon w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mb-4"
+              >
+                <i class="fa-solid fa-bullhorn"></i>
+              </div>
+              <h4 class="font-semibold">Profit Partners</h4>
+              <p class="text-sm text-gray-500 mt-2">
+                Business consulting consul us to provide expert advice
+                businesses
+              </p>
+            </div>
+          </div>
+
+          <div class="about-btn">
+            <a
+              href="./404.html"
+              class="inline-flex items-center gap-2 mt-10 bg-primary/80 text-white px-7 py-3 rounded-full font-semibold hover:bg-primary transition"
+            >
+              Read More About Me <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const aboutTL = gsap.timeline({
+        scrollTrigger: { trigger: ".about-section", start: "top 75%" },
+      });
+
+      aboutTL
+        .from(".exp-card", {
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        })
+        .from(".skill-card", { y: 40, opacity: 0, duration: 0.8 }, "-=.6")
+        .from(".abt-img", { y: 40, opacity: 0, duration: 0.8 }, "-=.6")
+        .from(".glow-circle", { scale: 0, opacity: 0, duration: 1 }, "-=.6")
+        .from(".about-label", { y: 20, opacity: 0, duration: 0.5 }, "-=.4")
+        .from(".about-title", { y: 40, opacity: 0, duration: 0.9 }, "-=.3")
+        .from(".about-desc", { y: 30, opacity: 0, duration: 0.7 }, "-=.4")
+        .from(
+          ".service-card",
+          { y: 40, opacity: 0, duration: 0.8, stagger: 0.2 },
+          "-=.4"
+        )
+        .from(".about-btn", { y: 20, opacity: 0, duration: 0.6 }, "-=.3");
+
+      gsap.to(".glow-circle", {
+        y: -20,
+        repeat: -1,
+        yoyo: true,
+        duration: 4,
+        ease: "sine.inOut",
+      });
+    </script>
+
     <!-- About Me -->
-    <section class="py-4 md:py-10 px-3 overflow-hidden">
+    <section class="py-4 md:py-10 px-4 md:px-8 lg:px-12 overflow-hidden">
       <div class="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <!-- RIGHT CONTENT -->
         <div>
@@ -385,11 +635,9 @@
             data-aos-delay="110"
             class="text-gray-600 leading-relaxed mb-10"
           >
-            In quis amet ex veniam in irure est culpa veniam velit fugiat
-            cupidatat duis anim commodo elit in occaecat cupidatat eu et sunt
-            commodo voluptate ullamco magna nulla amet. Lorem ipsum officia
-            veniam enim sit culpa velit proident enim ea officia aute non in
-            mollit culpa anim magna sit veniam irure eiusmod.
+            I am working on a professional, visually sophisticated and
+            technologically proficient, responsive and multi-functional personal
+            portfolio template Shane.
           </p>
 
           <!-- SKILLS LIST -->
@@ -497,11 +745,13 @@
     </script>
 
     <!-- My Resume -->
-    <section class="px-3 py-4 md:py-10 bg-white overflow-hidden">
+    <section
+      class="px-4 md:px-8 lg:px-12 py-4 md:py-10 bg-white overflow-hidden"
+    >
       <div class="mx-auto">
         <!-- Heading -->
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold">My Resume</h2>
+        <div class="text-center mb-16 resume-heading">
+          <h2 class="text-4xl font-bold resume-column-title">My Resume</h2>
           <div class="w-16 h-1 bg-red-400 mx-auto mt-3 rounded"></div>
         </div>
 
@@ -512,9 +762,9 @@
             <h3 class="text-2xl font-semibold mb-8">Experiences</h3>
 
             <!-- ITEM 1 -->
-            <div class="relative pl-12 pb-12">
+            <div class="relative pl-12 pb-12 resume-item">
               <div
-                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+                class="resume-dot absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
               >
                 1
               </div>
@@ -537,9 +787,9 @@
             </div>
 
             <!-- ITEM 2 -->
-            <div class="relative pl-12 pb-12">
+            <div class="relative pl-12 pb-12 resume-item">
               <div
-                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+                class="resume-dot absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
               >
                 2
               </div>
@@ -560,9 +810,9 @@
             </div>
 
             <!-- ITEM 3 -->
-            <div class="relative pl-12">
+            <div class="relative pl-12 resume-item">
               <div
-                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+                class="resume-dot absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
               >
                 3
               </div>
@@ -588,9 +838,9 @@
             <h3 class="text-2xl font-semibold mb-8">Education</h3>
 
             <!-- ITEM 1 -->
-            <div class="relative pl-12 pb-12">
+            <div class="relative pl-12 pb-12 resume-item">
               <div
-                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+                class="resume-dot absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
               >
                 1
               </div>
@@ -613,9 +863,9 @@
             </div>
 
             <!-- ITEM 2 -->
-            <div class="relative pl-12 pb-12">
+            <div class="relative pl-12 pb-12 resume-item">
               <div
-                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+                class="resume-dot absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
               >
                 2
               </div>
@@ -638,9 +888,9 @@
             </div>
 
             <!-- ITEM 3 -->
-            <div class="relative pl-12">
+            <div class="relative pl-12 resume-item">
               <div
-                class="absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
+                class="resume-dot absolute left-0 top-0 w-8 h-8 bg-red-500 text-white text-sm flex items-center justify-center rounded-full shadow"
               >
                 3
               </div>
@@ -666,8 +916,171 @@
       </div>
     </section>
 
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // section intro
+      gsap.from(".resume-heading", {
+        y: 140,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".resume-heading",
+          start: "top 75%",
+        },
+      });
+
+      // column titles
+      gsap.from(".resume-column-title", {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".resume-column-title",
+          start: "top 80%",
+        },
+      });
+
+      // timeline items
+      gsap.from(".resume-item", {
+        y: 150,
+        opacity: 0,
+        duration: 1.4,
+        ease: "power3.out",
+        stagger: 0.35,
+        scrollTrigger: {
+          trigger: ".resume-item",
+          start: "top 75%",
+        },
+      });
+
+      // floating dots
+      document.querySelectorAll(".resume-dot").forEach((dot) => {
+        gsap.to(dot, {
+          y: -6,
+          duration: 2.5,
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+        });
+      });
+    </script>
+
+    <!-- services  -->
+    <section
+      id="services"
+      class="mx-auto py-28 px-4 md:px-8 lg:px-12 overflow-hidden"
+    >
+      <div class="mb-16">
+        <p class="text-orange-500 font-semibold mb-2">Service</p>
+        <h2 class="text-4xl font-bold leading-tight">
+          Never compromise<br />with quality
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        <!-- CARD -->
+        <div class="service-card bg-white p-10 rounded-xl shadow-sm">
+          <div
+            class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6"
+          >
+            <i class="fa-solid fa-table-cells-large text-white text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Wireframing</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Web development is the building and maintenance of websites. it's
+            the work that...
+          </p>
+        </div>
+
+        <div class="service-card bg-white p-10 rounded-xl shadow-sm">
+          <div
+            class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6"
+          >
+            <i class="fa-solid fa-atom text-white text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Prototype</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Web development is the building and maintenance of websites. it's
+            the work that...
+          </p>
+        </div>
+
+        <div class="service-card bg-white p-10 rounded-xl shadow-sm">
+          <div
+            class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6"
+          >
+            <i class="fa-solid fa-layer-group text-white text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">UI Design</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Web development is the building and maintenance of websites. it's
+            the work that...
+          </p>
+        </div>
+
+        <div class="service-card bg-white p-10 rounded-xl shadow-sm">
+          <div
+            class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6"
+          >
+            <i class="fa-solid fa-user text-white text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Personal Creation</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Web development is the building and maintenance of websites. it's
+            the work that...
+          </p>
+        </div>
+
+        <div class="service-card bg-white p-10 rounded-xl shadow-sm">
+          <div
+            class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6"
+          >
+            <i class="fa-solid fa-briefcase text-white text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Case Study</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Web development is the building and maintenance of websites. it's
+            the work that...
+          </p>
+        </div>
+
+        <div class="service-card bg-white p-10 rounded-xl shadow-sm">
+          <div
+            class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6"
+          >
+            <i class="fa-solid fa-wand-magic-sparkles text-white text-xl"></i>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Experience Design</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Web development is the building and maintenance of websites. it's
+            the work that...
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".service-card", {
+        scrollTrigger: {
+          trigger: "#services",
+          start: "top 75%",
+        },
+        y: 160,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.12,
+        ease: "power4.out",
+      });
+    </script>
+
     <!-- Portfolio Section -->
-    <section class="py-8 md:py-16 px-5 overflow-hidden">
+    <section class="py-8 md:py-16 px-4 md:px-8 lg:px-12 overflow-hidden">
       <h2 class="text-center text-3xl font-bold tracking-wide">My Portfolio</h2>
       <div class="w-16 h-1 bg-red-500 mx-auto my-3 rounded-full"></div>
       <p class="text-center text-lg tracking-wide">
@@ -858,8 +1271,140 @@
       </div>
     </div>
 
+    <!-- blog -->
+    <section
+      class="py-6 lg:py-12 bg-white px-4 md:px-8 lg:px-12 overflow-hidden"
+    >
+      <!-- Header -->
+      <div class="text-center mb-16 blog-header">
+        <p class="text-[#ff4a17] font-semibold mb-2 blog-para">From My Blog</p>
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold blog-title"
+        >
+          Our Recent Updates, Blog, Tips,<br />
+          Tricks & More
+        </h2>
+      </div>
+
+      <!-- Cards -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 blog-grid"
+      >
+        <!-- Card 1 -->
+        <article class="group cursor-pointer blog-card">
+          <div class="relative overflow-hidden rounded-[18px]">
+            <img
+              src="../assets/1.webp"
+              alt="Card1"
+              class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-110"
+            />
+
+            <div
+              class="absolute top-5 right-5 bg-[#20c563] text-white px-4 py-3 rounded-xl text-center font-bold leading-none"
+            >
+              <div class="text-lg">23</div>
+              <div class="text-xs font-medium">Dec</div>
+            </div>
+          </div>
+
+          <div class="pt-6">
+            <span class="text-[#ff4a17] font-semibold block mb-2"
+              >Web Development</span
+            >
+            <h3 class="text-xl leading-relaxed font-semibold">
+              Jim Morisson Says when the musics over turn off the light
+            </h3>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="group cursor-pointer blog-card">
+          <div class="relative overflow-hidden rounded-[18px]">
+            <img
+              src="../assets/2.webp"
+              alt="card2"
+              class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-110"
+            />
+
+            <div
+              class="absolute top-5 right-5 bg-[#20c563] text-white px-4 py-3 rounded-xl text-center font-bold leading-none"
+            >
+              <div class="text-lg">23</div>
+              <div class="text-xs font-medium">Dec</div>
+            </div>
+          </div>
+
+          <div class="pt-6">
+            <span class="text-[#ff4a17] font-semibold block mb-2"
+              >Branding</span
+            >
+            <h3 class="text-xl leading-relaxed font-semibold">
+              How to be appreciated for your hard work as a developer
+            </h3>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="group cursor-pointer blog-card">
+          <div class="relative overflow-hidden rounded-[18px]">
+            <img
+              src="../assets/3.webp"
+              alt="card3"
+              class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-110"
+            />
+
+            <div
+              class="absolute top-5 right-5 bg-[#20c563] text-white px-4 py-3 rounded-xl text-center font-bold leading-none"
+            >
+              <div class="text-lg">23</div>
+              <div class="text-xs font-medium">Dec</div>
+            </div>
+          </div>
+
+          <div class="pt-6">
+            <span class="text-[#ff4a17] font-semibold block mb-2"
+              >Social Media</span
+            >
+            <h3 class="text-xl leading-relaxed font-semibold">
+              How designers and developers can collaborate better
+            </h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".blog-header .blog-para", {
+        scrollTrigger: { trigger: ".blog-section", start: "top 80%" },
+        y: 120,
+        opacity: 0,
+        duration: 0.6,
+      });
+
+      gsap.from(".blog-header .blog-title", {
+        scrollTrigger: { trigger: ".blog-section", start: "top 80%" },
+        y: 160,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+      });
+
+      gsap.from(".blog-card", {
+        scrollTrigger: { trigger: ".blog-grid", start: "top 80%" },
+        y: 180,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.25,
+        ease: "power4.out",
+      });
+    </script>
+
     <!-- Testimonials Section -->
-    <section class="px-3 py-6 md:py-12 overflow-hidden bg-[#f5f7ff]">
+    <section
+      class="px-4 md:px-8 lg:px-12 py-6 md:py-12 overflow-hidden bg-[#f5f7ff]"
+    >
       <!-- Heading -->
       <div
         data-aos="zoom-in"
@@ -881,7 +1426,7 @@
       </div>
 
       <!-- Slider Wrapper -->
-      <div class="relative max-w-6xl mx-auto mt-10">
+      <div class="relative mx-auto mt-10">
         <!-- Controls -->
         <div class="flex justify-end gap-4 my-8">
           <button
@@ -1002,10 +1547,11 @@
     </section>
 
     <!-- Happy Client -->
-    <section id="work" class="bg-[#f5f7fb] py-20 scroll-mt-20 overflow-hidden">
-      <div
-        class="mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-14 items-center"
-      >
+    <section
+      id="work"
+      class="bg-[#f5f7fb] px-4 md:px-8 lg:px-12 py-20 scroll-mt-20 overflow-hidden"
+    >
+      <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
         <!-- LEFT CONTENT -->
         <div>
           <h4
@@ -1404,42 +1950,10 @@
       })();
     </script>
 
-    <!-- TYPEWRITER JS -->
-    <script>
-      const words = ["Designer.", "Developer.", "Illustrator.", "Creator."];
-      let i = 0,
-        j = 0,
-        isDeleting = false;
-
-      function typeEffect() {
-        const element = document.getElementById("typewriter");
-        const currentWord = words[i];
-
-        if (!isDeleting) {
-          element.textContent = currentWord.substring(0, j++);
-        } else {
-          element.textContent = currentWord.substring(0, j--);
-        }
-
-        if (j === currentWord.length + 1) {
-          isDeleting = true;
-          setTimeout(typeEffect, 800);
-          return;
-        }
-
-        if (j === 0 && isDeleting) {
-          isDeleting = false;
-          i = (i + 1) % words.length;
-        }
-
-        setTimeout(typeEffect, isDeleting ? 80 : 120);
-      }
-
-      typeEffect();
-    </script>
-
     <!-- Have a Project?  -->
-    <section class="px-3 py-12 bg-primary/20 overflow-hidden w-full">
+    <section
+      class="px-4 md:px-8 lg:px-12 py-12 bg-primary/20 overflow-hidden w-full"
+    >
       <div class="w-full flex flex-wrap items-center justify-between gap-10">
         <div class="max-w-2xl w-full">
           <h2 class="text-2xl sm:text-4xl font-bold">Have a Project?</h2>
@@ -1462,7 +1976,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white mt-10 px-3 overflow-hidden">
+    <footer class="bg-white mt-10 px-4 md:px-8 lg:px-12 overflow-hidden">
       <div class="mx-auto text-center">
         <!-- Name -->
         <h2 class="text-2xl md:text-3xl font-serif italic text-gray-900">

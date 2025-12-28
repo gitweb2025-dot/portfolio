@@ -49,6 +49,14 @@
     <!-- Tailwind CSS  -->
     <link rel="stylesheet" href="./src/output.css" />
 
+    <!-- gsap -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
+
     <!-- Navbar -->
     <style>
       body {
@@ -101,7 +109,7 @@
     <!-- Navbar  -->
     <header class="sticky top-0 z-40 w-full mx-auto">
       <div
-        class="flex items-center justify-between px-3 h-16 bg-white shadow-md backdrop-blur-2xl"
+        class="flex items-center justify-between px-4 md:px-8 lg:px-12 h-16 bg-white shadow-md backdrop-blur-2xl"
       >
         <!-- Logo -->
         <a class="" href="./index.html">
@@ -305,184 +313,1076 @@
       </script>
     </header>
 
-    <!-- hero section -->
-    <main class="px-3 py-6 md:py-12 overflow-hidden bg-gray-50">
-      <div class="mx-auto grid lg:grid-cols-2 gap-14 items-center">
-        <!-- IMAGE -->
-        <div class="relative" data-aos="fade-right" data-aos-delay="200">
+    <!-- Home -->
+    <main
+      class="relative py-8 px-4 md:px-8 lg:px-12 overflow-hidden bg-[#071a2f]"
+    >
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <!-- IMAGE SIDE -->
+        <div class="relative flex justify-center items-center">
+          <!-- Orange Shape -->
           <div
-            class="absolute -top-6 -left-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl opacity-40"
-          ></div>
-          <div
-            class="absolute bottom-0 -right-6 w-32 h-32 bg-primary/30 rounded-full blur-2xl opacity-30"
+            class="absolute w-[420px] h-[420px] bg-orange-500 rotate-45 rounded-3xl"
           ></div>
 
-          <img
-            src="./assets/hero_img.webp"
-            class="w-full h-[400px] object-contain mx-auto rounded-2xl shadow-2xl"
-          />
-        </div>
-
-        <!-- TEXT -->
-        <div data-aos="fade-left" data-aos-delay="150">
-          <h1
-            class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-gray-900"
-          >
-            Crafting Stunning
-            <span class="text-primary">Digital Experiences</span>
-          </h1>
-
-          <p class="text-sm md:text-lg text-gray-700 mt-4 max-w-md">
-            I'm a passionate developer who builds interactive, professional and
-            visually rich websites with modern UI, animations and high-end
-            performance across all devices.
-          </p>
-
-          <div class="flex gap-4 mt-8 flex-wrap">
-            <a
-              href="./404.html"
-              class="px-6 py-3 bg-primary text-white rounded-lg shadow-lg transition flex items-center gap-2"
-            >
-              <i class="fa-solid fa-briefcase"></i> View Work
-            </a>
-
-            <a
-              href="./404.html"
-              class="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition flex items-center gap-2"
-            >
-              <i class="fa-solid fa-message"></i> Let's Talk
-            </a>
+          <!-- Image -->
+          <div class="relative z-10">
+            <img
+              src="./assets/home1.webp"
+              class="w-[400px] h-[500px] object-cover rounded-2xl shadow-2xl hero-photo"
+            />
           </div>
 
-          <div class="mt-10 flex items-center gap-6 text-gray-600">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-check text-primary"></i> Modern UI
+          <!-- Stats -->
+          <div
+            class="absolute top-16 left-6 bg-white px-6 py-3 rounded-xl shadow-xl stat"
+          >
+            <p class="text-orange-500 text-2xl font-bold">5K+</p>
+            <p class="text-xs font-semibold">TOTAL PROJECTS</p>
+          </div>
+
+          <div
+            class="absolute bottom-20 right-8 bg-white px-6 py-3 rounded-xl z-20 shadow-xl stat"
+          >
+            <p class="text-orange-500 text-2xl font-bold">200+</p>
+            <p class="text-xs font-semibold">WORLDWIDE CLIENTS</p>
+          </div>
+        </div>
+
+        <!-- TEXT SIDE -->
+        <div
+          class="text-white flex flex-col justify-center space-y-6 relative z-10"
+        >
+          <p class="text-white/80 text-lg md:text-xl">Hello, I'm</p>
+
+          <h1
+            class="text-4xl md:text-5xl lg:text-[90px] leading-none font-extrabold"
+          >
+            <span class="block split-text">James</span>
+            <span class="block text-orange-500 split-text">Anderson</span>
+          </h1>
+
+          <p class="text-white/80 text-lg max-w-md">
+            A passionate
+            <span class="text-white font-semibold">
+              <span id="type-text"></span>
+            </span>
+            from New York!
+          </p>
+
+          <div class="flex flex-wrap items-center gap-10 pt-4">
+            <div class="flex gap-4 text-lg text-white/90">
+              <i class="fa-brands fa-facebook-f"></i>
+              <i class="fa-brands fa-twitter"></i>
+              <i class="fa-brands fa-linkedin-in"></i>
+              <i class="fa-brands fa-instagram"></i>
             </div>
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-check text-primary"></i> Smooth Animations
+
+            <div class="hero-button">
+              <a
+                href="./404.html"
+                class="bg-orange-500 hover:bg-orange-600 transition px-8 py-3 rounded-full font-semibold w-fit"
+              >
+                CONTACT ME
+              </a>
             </div>
           </div>
         </div>
       </div>
     </main>
 
-    <!-- ABOUT SECTION -->
-    <section class="px-3 py-6 md:py-12 overflow-hidden">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <!-- RIGHT TEXT CONTENT -->
-        <div>
-          <!-- Small Label -->
-          <p
-            data-aos="zoom-in-right"
-            data-aos-delay="50"
-            class="text-sm font-semibold text-primary flex items-center gap-2"
-          >
-            About Me
-            <i class="fa-solid fa-crown text-primary"></i>
-          </p>
+    <style>
+      #type-text::after {
+        content: "|";
+        margin-left: 6px;
+        animation: blink 1s infinite;
+      }
 
-          <!-- Heading -->
-          <h1
-            data-aos="zoom-in-right"
-            data-aos-delay="100"
-            class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mt-3"
-          >
-            Why you <span class="text-primary">hire me</span><br />
-            for your <span class="text-primary">next project?</span>
-          </h1>
+      @keyframes blink {
+        0%,
+        50%,
+        100% {
+          opacity: 1;
+        }
+        25%,
+        75% {
+          opacity: 0;
+        }
+      }
+    </style>
 
-          <!-- TAB BUTTONS -->
-          <div class="flex gap-6 mt-6 font-semibold text-sm" id="tabButtons">
-            <button
-              class="tab-btn active text-primary border-b-2 border-primary pb-1 cursor-pointer"
-              data-tab="myself"
-            >
-              MYSELF
-            </button>
-            <button
-              class="tab-btn text-gray-600 hover:text-primary transition cursor-pointer"
-              data-tab="education"
-            >
-              EDUCATION
-            </button>
-            <button
-              class="tab-btn text-gray-600 hover:text-primary transition cursor-pointer"
-              data-tab="tools"
-            >
-              MY TOOLS
-            </button>
-          </div>
+    <script>
+      const words = [
+        "Web Developer",
+        "Designer",
+        "UI/UX Expert",
+        "Creative Coder",
+      ];
+      const textEl = document.getElementById("type-text");
 
-          <!-- TAB CONTENT -->
-          <div
-            id="tabContent"
-            class="mt-6 text-gray-600 text-sm md:text-lg leading-relaxed"
-          >
-            <!-- DEFAULT CONTENT -->
-            <div class="tab-item" id="myself">
-              I am a professional UI/UX designer and frontend developer with a
-              passion for creating modern, clean, and user-centric websites. I
-              focus on design systems, brand consistency, and digital
-              experiences.
-            </div>
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
 
-            <div class="tab-item hidden" id="education">
-              I hold a degree in Computer Science and have completed advanced
-              UI/UX design courses from top institutions. Specialized in
-              interaction design, digital psychology, and modern frontend
-              development.
-            </div>
+      function typeEffect() {
+        const current = words[wordIndex];
+        const visible = current.substring(0, charIndex);
 
-            <div class="tab-item hidden" id="tools">
-              My toolkit includes Figma, Adobe XD, Illustrator, ReactJS,
-              TailwindCSS, Git, Framer Motion, GSAP, and more. I create
-              high-fidelity designs and interactive prototypes to make their
-              presence.
-            </div>
-          </div>
+        textEl.textContent = visible;
 
-          <!-- HIRE BUTTON -->
-          <div class="mt-10">
-            <a
-              href="./404.html"
-              class="mt-6 bg-primary hover:bg-[#ff5648] text-white font-semibold px-8 py-4 rounded-xl shadow-md transition"
-            >
-              About Me
-            </a>
-          </div>
+        let speed = isDeleting ? 40 : 80;
+
+        if (!isDeleting && charIndex === current.length) {
+          speed = 1200; // pause when finished typing
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          speed = 400;
+        }
+
+        charIndex += isDeleting ? -1 : 1;
+
+        setTimeout(typeEffect, speed);
+      }
+
+      typeEffect();
+    </script>
+
+    <script>
+      document.querySelectorAll(".split-text").forEach((el) => {
+        const text = el.innerText;
+        el.innerHTML = "";
+        [...text].forEach((c) => {
+          const span = document.createElement("span");
+          span.textContent = c === " " ? "\u00A0" : c;
+          span.style.display = "inline-block";
+          el.appendChild(span);
+        });
+      });
+    </script>
+
+    <script>
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.from(".split-text span", {
+        y: 90,
+        opacity: 0,
+        stagger: 0.04,
+        duration: 1.2,
+      })
+        .from(
+          "p, .fa-brands, .hero-button",
+          {
+            y: 40,
+            opacity: 0,
+            stagger: 0.15,
+            duration: 0.8,
+          },
+          "-=.6"
+        )
+
+        .from(
+          ".hero-button",
+          {
+            scale: 0.7,
+            // opacity: 0,
+            duration: 0.7,
+          },
+          "-=.6"
+        )
+
+        .from(
+          ".hero-photo",
+          {
+            scale: 0.7,
+            opacity: 0,
+            duration: 1.2,
+          },
+          "-=.9"
+        )
+        .from(
+          ".stat",
+          {
+            // y: 50,
+            scale: 0.7,
+            opacity: 0,
+            stagger: 0.3,
+            duration: 0.8,
+          },
+          "-=.6"
+        );
+
+      // Floating life
+      gsap.to(".hero-photo", {
+        y: "-=14",
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+
+      gsap.to(".stat", {
+        y: "+=8",
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        stagger: 0.4,
+      });
+    </script>
+
+    <!-- welcome -->
+    <section class="px-4 md:px-8 lg:px-12 py-6 lg:py-12 bg-white overflow-hidden">
+      <div class=" mx-auto text-center">
+        <div
+          class="welcome-tag flex items-center justify-center gap-3 text-sm font-semibold tracking-widest mb-4"
+        >
+          <span class="w-3 h-0.5 bg-orange-500"></span>
+          WELCOME TO MY WORLD
+          <span class="w-3 h-0.5 bg-orange-500"></span>
         </div>
 
-        <!-- LEFT IMAGE BLOCK -->
-        <div class="relative h-full flex justify-center">
-          <!-- Main Image Card -->
-          <div
-            data-aos="zoom-in-left"
-            data-aos-delay="50"
-            class="w-full object-cover rounded-3xl bg-primary/90 overflow-hidden"
-          >
-            <img
-              src="./assets/hero_img.webp"
-              alt="profile-photo"
-              class="w-full h-[400px] object-contain mix-blend-luminosity"
-            />
+        <p class="welcome-desc text-gray-500 max-w-xl mx-auto mb-16">
+          I'm a young tech enthusiast and entrepreneur who love to take risk. I
+          grew up in a tech family in New York City.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          <div class="feature-card relative group z-10">
+            <!-- bg-hover -->
+            <span
+              class="w-full h-full absolute inset-0 bg-primary group-hover:-rotate-6 transition duration-500 ease-in-out z-[-1] rounded-xl"
+            ></span>
+            <!-- front card content -->
+            <div
+              class="bg-white border border-primary/50 px-3 py-8 rounded-xl group-hover:shadow-xl transition duration-500 ease-in-out"
+            >
+              <i class="fa-solid fa-atom text-orange-500 text-3xl mb-5"></i>
+              <h3>Creativity</h3>
+              <p>
+                Duis aute irure dolor in it esse cillum dolore eu fugiat nulla
+                pari erunt mollit anim id est laborum.
+              </p>
+            </div>
           </div>
 
-          <!-- Floating Badge -->
-          <div
-            class="absolute bottom-6 right-8 bg-white shadow-xl px-5 py-3 rounded-2xl flex items-center gap-3"
-          >
-            <i class="fa-solid fa-face-grin-hearts text-2xl text-primary"></i>
-            <div>
-              <h3 class="text-lg font-semibold text-gray-800">80+</h3>
-              <p class="text-xs text-gray-500 -mt-1">Happy Clients</p>
+          <div class="feature-card relative group z-10">
+            <!-- bg-hover -->
+            <span
+              class="w-full h-full absolute inset-0 bg-primary group-hover:-rotate-6 transition duration-500 ease-in-out z-[-1] rounded-xl"
+            ></span>
+            <div
+              class="bg-white border border-primary/50 px-3 py-8 rounded-xl group-hover:shadow-xl transition duration-500 ease-in-out"
+            >
+              <i class="fa-solid fa-gem text-orange-500 text-3xl mb-5"></i>
+              <h3>Dedication</h3>
+              <p>
+                Beaboris nisi ut aliquip ex ea commodo consen cillum dolore eu
+                fugiat nulla pariatur.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature-card relative group z-10">
+            <!-- bg-hover -->
+            <span
+              class="w-full h-full absolute inset-0 bg-primary group-hover:-rotate-6 transition duration-500 ease-in-out z-[-1] rounded-xl"
+            ></span>
+            <div
+              class="bg-white border border-primary/70 px-3 py-8 rounded-xl group-hover:shadow-xl transition duration-500 ease-in-out"
+            >
+              <i class="fa-solid fa-rocket text-orange-500 text-3xl mb-5"></i>
+              <h3>Hard Work</h3>
+              <p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui offi llit anim id est laborum.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // heading
+      gsap.from(".welcome-tag", {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".welcome-tag", start: "top 80%" },
+      });
+
+      gsap.from(".welcome-desc", {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        delay: 0.2,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".welcome-desc", start: "top 80%" },
+      });
+
+      // cards — premium stagger entrance
+      gsap.from(".feature-card", {
+        y: 50,
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.9,
+        ease: "power3.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".feature-card",
+          start: "top 75%",
+        },
+      });
+    </script>
+
+    <!-- about  -->
+    <section
+      class="mx-auto px-4 md:px-8 lg:px-12 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center overflow-hidden"
+    >
+      <!-- LEFT IMAGES -->
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=500&q=80"
+          class="rounded-xl shadow-2xl w-[70%] relative z-10 hero-img-1"
+        />
+
+        <img
+          src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80"
+          class="rounded-xl shadow-2xl w-[55%] absolute -bottom-10 right-0 sm:-right-10 hero-img-2 z-20"
+        />
+
+        <div
+          class="absolute w-10 h-10 border-4 border-orange-500 rounded-lg top-24 -right-4 sm:-right-10 deco-1"
+        ></div>
+        <div
+          class="absolute w-8 h-8 bg-orange-500 rounded-md -bottom-10 left-0 deco-2 z-20"
+        ></div>
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="space-y-6">
+        <p class="text-orange-500 font-semibold tracking-wide abt-head">
+          ABOUT ME
+        </p>
+
+        <h1 class="text-4xl lg:text-5xl font-extrabold leading-tight abt-title">
+          Senior Web Designer <br />
+          from New York
+        </h1>
+
+        <p class="text-gray-600 leading-relaxed">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
+        </p>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 text-sm mt-6 grid-text"
+        >
+          <div class="grids">
+            <p class="font-semibold">NAME</p>
+            <p class="text-gray-600">
+              <i class="fa-solid fa-user mr-2 text-orange-500"></i>James Smith
+            </p>
+          </div>
+
+          <div class="grids">
+            <p class="font-semibold">AGE</p>
+            <p class="text-gray-600">
+              <i class="fa-solid fa-cake-candles mr-2 text-orange-500"></i>27
+              Years
+            </p>
+          </div>
+
+          <div class="grids">
+            <p class="font-semibold">EMAIL</p>
+            <p class="text-gray-600">
+              <i class="fa-solid fa-envelope mr-2 text-orange-500"></i
+              >hello@jamesanderson.com
+            </p>
+          </div>
+
+          <div class="grids">
+            <p class="font-semibold">EDUCATION</p>
+            <p class="text-gray-600">
+              <i class="fa-solid fa-graduation-cap mr-2 text-orange-500"></i
+              >Bachelors in Physics
+            </p>
+          </div>
+
+          <div class="grids">
+            <p class="font-semibold">PHONE</p>
+            <p class="text-gray-600">
+              <i class="fa-solid fa-phone mr-2 text-orange-500"></i>+123 456
+              7890
+            </p>
+          </div>
+
+          <div class="grids">
+            <p class="font-semibold">FREELANCE</p>
+            <p class="text-gray-600">
+              <i class="fa-solid fa-briefcase mr-2 text-orange-500"></i
+              >Available
+            </p>
+          </div>
+        </div>
+
+        <div class="abt-btn mt-16">
+          <a
+            href="./404.html"
+            class="mt-8 bg-orange-500 text-white px-8 py-4 rounded-md font-semibold hover:bg-orange-600 transition"
+          >
+            DOWNLOAD CV
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Image stack
+      gsap.from(".hero-img-1", {
+        scrollTrigger: {
+          trigger: ".hero-img-1",
+          start: "top 80%",
+        },
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        ease: "power4.out",
+      });
+
+      gsap.from(".hero-img-2", {
+        scrollTrigger: {
+          trigger: ".hero-img-2",
+          start: "top 85%",
+        },
+        x: -80,
+        y: 80,
+        opacity: 0,
+        duration: 1.1,
+        ease: "power4.out",
+      });
+
+      // Decorative shapes
+      gsap.from(".deco-1", {
+        scrollTrigger: {
+          trigger: ".deco-1",
+          start: "top 90%",
+        },
+        scale: 0,
+        rotation: 180,
+        duration: 0.9,
+        ease: "back.out(1.8)",
+      });
+
+      gsap.from(".deco-2", {
+        scrollTrigger: {
+          trigger: ".deco-2",
+          start: "top 90%",
+        },
+        scale: 0,
+        rotation: -180,
+        duration: 0.9,
+        delay: 0.1,
+        ease: "back.out(1.8)",
+      });
+
+      // Headline + copy
+      gsap.from(".abt-title", {
+        scrollTrigger: {
+          trigger: ".abt-title",
+          start: "top 85%",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+      });
+
+      gsap.from(".abt-head", {
+        scrollTrigger: {
+          trigger: ".abt-head",
+          start: "top 85%",
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      // Info grid items
+      gsap.from(".grids", {
+        scrollTrigger: {
+          trigger: ".grid-text",
+          start: "top 85%",
+        },
+        y: 40,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+
+      // Button
+      gsap.from(".abt-btn", {
+        scrollTrigger: {
+          trigger: ".abt-btn",
+          start: "top 90%",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power3.out",
+      });
+    </script>
+
+    <!-- resume  -->
+    <section class="mx-auto px-4 md:px-8 lg:px-12 py-20 overflow-hidden">
+      <div class="text-center mb-16">
+        <p class="text-gray-400 tracking-widest text-sm">MY RESUME</p>
+        <h2 class="text-4xl font-bold tracking-widest mt-2">MY EXPERTISES</h2>
+        <div class="w-24 h-0.5 bg-gray-300 mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Experience -->
+        <div>
+          <h3 class="text-xl mb-8">My Experience</h3>
+
+          <div class="space-y-8 exp-col">
+            <div class="bg-white p-8 rounded-md shadow-sm card">
+              <h4 class="font-semibold text-lg">Senior Architect</h4>
+              <span
+                class="inline-block bg-orange-500 text-white text-xs px-3 py-1 rounded mt-2"
+              >
+                <i class="fa-brands fa-google mr-1"></i>2015 - Present
+              </span>
+              <p class="mt-4 text-gray-500 leading-relaxed">
+                Collaborate with creative and development teams on the execution
+                of ideas.
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-md shadow-sm card1">
+              <h4 class="font-semibold text-lg">Front-end Developer</h4>
+              <span
+                class="inline-block bg-orange-500 text-white text-xs px-3 py-1 rounded mt-2"
+              >
+                <i class="fa-brands fa-facebook mr-1"></i>2013 - 2015
+              </span>
+              <p class="mt-4 text-gray-500 leading-relaxed">
+                Collaborate with creative and development teams on the execution
+                of ideas.
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-md shadow-sm card2">
+              <h4 class="font-semibold text-lg">UI Developer</h4>
+              <span
+                class="inline-block bg-orange-500 text-white text-xs px-3 py-1 rounded mt-2"
+              >
+                <i class="fa-solid fa-briefcase mr-1"></i>2011 - 2013
+              </span>
+              <p class="mt-4 text-gray-500 leading-relaxed">
+                Collaborate with creative and development teams on the execution
+                of ideas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <h3 class="text-xl mb-8">My Education</h3>
+
+          <div class="space-y-8 edu-col">
+            <div class="bg-white p-8 rounded-md shadow-sm card">
+              <h4 class="font-semibold text-lg">Master in Arts</h4>
+              <span
+                class="inline-block bg-orange-500 text-white text-xs px-3 py-1 rounded mt-2"
+              >
+                <i class="fa-solid fa-graduation-cap mr-1"></i>2006 - 2008
+              </span>
+              <p class="mt-4 text-gray-500 leading-relaxed">
+                Collaborate with creative and development teams on the execution
+                of ideas.
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-md shadow-sm card1">
+              <h4 class="font-semibold text-lg">Art University</h4>
+              <span
+                class="inline-block bg-orange-500 text-white text-xs px-3 py-1 rounded mt-2"
+              >
+                <i class="fa-solid fa-school mr-1"></i>2006 - 2008
+              </span>
+              <p class="mt-4 text-gray-500 leading-relaxed">
+                Collaborate with creative and development teams on the execution
+                of ideas.
+              </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-md shadow-sm card2">
+              <h4 class="font-semibold text-lg">Anna University</h4>
+              <span
+                class="inline-block bg-orange-500 text-white text-xs px-3 py-1 rounded mt-2"
+              >
+                <i class="fa-solid fa-school mr-1"></i>2002 - 2005
+              </span>
+              <p class="mt-4 text-gray-500 leading-relaxed">
+                Collaborate with creative and development teams on the execution
+                of ideas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Title
+      gsap.from("h2", {
+        scrollTrigger: { trigger: "h2", start: "top 80%" },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // Experience cards
+      gsap.from(".exp-col .card", {
+        scrollTrigger: { trigger: ".exp-col", start: "top 80%" },
+        y: -60,
+        opacity: 0,
+        // stagger: 0.8,
+        duration: 0.9,
+        ease: "power4.out",
+      });
+
+      gsap.from(".exp-col .card1", {
+        scrollTrigger: { trigger: ".card1", start: "top 80%" },
+        y: -60,
+        opacity: 0,
+        // stagger: 0.8,
+        duration: 0.9,
+        ease: "power4.out",
+      });
+      gsap.from(".exp-col .card2", {
+        scrollTrigger: { trigger: ".card2", start: "top 80%" },
+        y: -60,
+        opacity: 0,
+        // stagger: 0.8,
+        duration: 0.9,
+        ease: "power4.out",
+      });
+
+      // Education cards
+      gsap.from(".edu-col .card", {
+        scrollTrigger: { trigger: ".edu-col", start: "top 80%" },
+        y: 60,
+        opacity: 0,
+        stagger: 0.8,
+        duration: 0.9,
+        ease: "power4.out",
+      });
+      gsap.from(".edu-col .card1", {
+        scrollTrigger: { trigger: ".card1", start: "top 80%" },
+        y: 60,
+        opacity: 0,
+        // stagger: 0.8,
+        duration: 0.9,
+        ease: "power4.out",
+      });
+      gsap.from(".edu-col .card2", {
+        scrollTrigger: { trigger: ".card2", start: "top 80%" },
+        y: 60,
+        opacity: 0,
+        // stagger: 0.8,
+        duration: 0.9,
+        ease: "power4.out",
+      });
+    </script>
+
+    <!-- skills  -->
+    <section class="mx-auto px-4 md:px-8 lg:px-12 py-8 overflow-hidden">
+      <div class="grid md:grid-cols-2 gap-16">
+        <!-- DESIGN SKILLS -->
+        <div class="space-y-10">
+          <h3 class="text-xl font-semibold tracking-wide">Design Skills</h3>
+
+          <div class="skill" data-value="90">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-solid fa-pen-nib text-orange-500 mr-2"></i>Graphic
+                Design</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+
+          <div class="skill" data-value="75">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-solid fa-palette text-orange-500 mr-2"></i>Logo
+                Design</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+
+          <div class="skill" data-value="80">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-solid fa-layer-group text-orange-500 mr-2"></i
+                >Branding</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+
+          <div class="skill" data-value="85">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-solid fa-bezier-curve text-orange-500 mr-2"></i
+                >Photoshop & Figma</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CODING SKILLS -->
+        <div class="space-y-10">
+          <h3 class="text-xl font-semibold tracking-wide">Coding Skills</h3>
+
+          <div class="skill" data-value="85">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-solid fa-mobile-screen text-orange-500 mr-2"></i
+                >RWD</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+
+          <div class="skill" data-value="88">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-brands fa-bootstrap text-orange-500 mr-2"></i
+                >Bootstrap</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+
+          <div class="skill" data-value="70">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-solid fa-code text-orange-500 mr-2"></i
+                >Jekyll</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+
+          <div class="skill" data-value="90">
+            <div class="flex justify-between mb-2">
+              <span
+                ><i class="fa-brands fa-js text-orange-500 mr-2"></i
+                >Javascript</span
+              >
+              <span class="percent">0%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded">
+              <div class="bar h-full bg-orange-500 rounded w-0"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      document.querySelectorAll(".skill").forEach((skill) => {
+        const value = skill.dataset.value;
+        const bar = skill.querySelector(".bar");
+        const percent = skill.querySelector(".percent");
+
+        gsap.to(bar, {
+          width: value + "%",
+          duration: 1.4,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: skill,
+            start: "top 85%",
+          },
+        });
+
+        gsap.to(
+          { val: 0 },
+          {
+            val: value,
+            duration: 1.4,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: skill,
+              start: "top 85%",
+            },
+            onUpdate() {
+              percent.textContent = Math.round(this.targets()[0].val) + "%";
+            },
+          }
+        );
+      });
+    </script>
+
+    <!-- portfolio  -->
+    <section
+      id="portfolio"
+      class="mx-auto px-4 md:px-8 lg:px-12 py-8 overflow-hidden"
+    >
+      <div class="mb-12">
+        <p class="text-orange-500 font-semibold tracking-wide">Portfolio</p>
+        <h2 class="text-4xl font-bold leading-tight">
+          My works that I did for<br />clients
+        </h2>
+      </div>
+
+      <!-- Filter -->
+      <div
+        class="flex flex-wrap gap-8 mb-14 text-lg md:text-xl font-semibold filter-menu"
+      >
+        <button
+          class="filter-btn text-orange-500 cursor-pointer"
+          data-filter="all"
+        >
+          All
+        </button>
+        <button class="filter-btn cursor-pointer" data-filter="vimeo">
+          Portfolio
+        </button>
+        <button class="filter-btn cursor-pointer" data-filter="youtube">
+          Dashboard
+        </button>
+        <button class="filter-btn cursor-pointer" data-filter="soundcloud">
+          Soundcloud
+        </button>
+        <button class="filter-btn cursor-pointer" data-filter="detail">
+          Ecommerce
+        </button>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid smmd:grid-cols-2 md:grid-cols-3 gap-8 portfolio">
+        <div class="item vimeo relative overflow-hidden rounded-xl h-64">
+          <img src="./assets/d1.webp" class="w-full h-full object-cover" />
+          <div
+            class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 opacity-0"
+          >
+            <h3 class="text-white font-semibold">Project Title</h3>
+            <p class="text-white/70 text-sm">Branding / Design</p>
+          </div>
+        </div>
+
+        <div class="item youtube relative overflow-hidden rounded-xl h-64">
+          <img src="./assets/d7.webp" class="w-full h-full object-cover" />
+          <div
+            class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 opacity-0"
+          >
+            <h3 class="text-white font-semibold">Creative Box</h3>
+            <p class="text-white/70 text-sm">Product</p>
+          </div>
+        </div>
+
+        <div class="item detail relative overflow-hidden rounded-xl h-64">
+          <img src="./assets/d3.webp" class="w-full h-full object-cover" />
+          <div
+            class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 opacity-0"
+          >
+            <h3 class="text-white font-semibold">Magazine</h3>
+            <p class="text-white/70 text-sm">Publishing</p>
+          </div>
+        </div>
+
+        <div class="item vimeo relative overflow-hidden rounded-xl h-64">
+          <img src="./assets/d8.webp" class="w-full h-full object-cover" />
+          <div
+            class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 opacity-0"
+          >
+            <h3 class="text-white font-semibold">Classic Car</h3>
+            <p class="text-white/70 text-sm">Photography</p>
+          </div>
+        </div>
+
+        <div class="item youtube relative overflow-hidden rounded-xl h-64">
+          <img src="./assets/d5.webp" class="w-full h-full object-cover" />
+          <div
+            class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 opacity-0"
+          >
+            <h3 class="text-white font-semibold">Headphones</h3>
+            <p class="text-white/70 text-sm">Product</p>
+          </div>
+        </div>
+
+        <div class="item soundcloud relative overflow-hidden rounded-xl h-64">
+          <img src="./assets/d6.webp" class="w-full h-full object-cover" />
+          <div
+            class="overlay absolute inset-0 bg-black/60 flex flex-col justify-end p-6 opacity-0"
+          >
+            <h3 class="text-white font-semibold">Packaging</h3>
+            <p class="text-white/70 text-sm">Branding</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const cards = [...document.querySelectorAll(".item")];
+      const buttons = document.querySelectorAll(".filter-btn");
+
+      let active = "all";
+      let animating = false;
+
+      /* -------- Scroll Entrance -------- */
+
+      gsap.from("#portfolio .item", {
+        scrollTrigger: {
+          trigger: "#portfolio",
+          start: "top 75%",
+        },
+        y: 60,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 1,
+        ease: "power4.out",
+      });
+
+      /* -------- Hover Overlay -------- */
+
+      cards.forEach((card) => {
+        const overlay = card.querySelector(".overlay");
+
+        overlay.style.transition =
+          "opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1)";
+        overlay.style.transform = "translateY(30px)";
+        overlay.style.opacity = "0";
+
+        card.addEventListener("mouseenter", () => {
+          overlay.style.opacity = "1";
+          overlay.style.transform = "translateY(0)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+          overlay.style.opacity = "0";
+          overlay.style.transform = "translateY(30px)";
+        });
+      });
+
+      /* -------- FLIP FILTER ENGINE -------- */
+
+      function runFilter(filter) {
+        if (animating) return;
+        animating = true;
+
+        // Capture first positions
+        const first = new Map();
+        cards.forEach((el) => first.set(el, el.getBoundingClientRect()));
+
+        // Apply filter (causes layout change)
+        cards.forEach((card) => {
+          if (filter === "all" || card.classList.contains(filter)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        // Capture last positions
+        const last = new Map();
+        cards.forEach((el) => {
+          if (el.style.display !== "none") {
+            last.set(el, el.getBoundingClientRect());
+          }
+        });
+
+        // Invert + Play
+        last.forEach((newBox, el) => {
+          const oldBox = first.get(el);
+          const dx = oldBox.left - newBox.left;
+          const dy = oldBox.top - newBox.top;
+
+          el.animate(
+            [
+              { transform: `translate(${dx}px, ${dy}px)` },
+              { transform: "translate(0,0)" },
+            ],
+            {
+              duration: 700,
+              easing: "cubic-bezier(.16,1,.3,1)",
+              fill: "both",
+            }
+          );
+        });
+
+        setTimeout(() => (animating = false), 700);
+      }
+
+      /* -------- Button Control -------- */
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const next = btn.dataset.filter;
+          if (next === active || animating) return;
+
+          document
+            .querySelector(".filter-btn.text-orange-500")
+            .classList.remove("text-orange-500");
+
+          btn.classList.add("text-orange-500");
+
+          active = next;
+          runFilter(active);
+        });
+      });
+    </script>
+
     <!-- Services -->
-    <section class="px-3 py-6 md:py-12 overflow-hidden">
+    <section class="px-4 md:px-8 lg:px-12 py-8 md:py-12 overflow-hidden">
       <div class="mx-auto">
         <!-- Heading -->
         <div data-aos="fade-up" data-aos-delay="100">
@@ -655,8 +1555,8 @@
     </section>
 
     <!-- Blog Posts -->
-    <section class="px-3 py-6 md:py-12 overflow-hidden">
-      <div class="mx-auto grid md:grid-cols-2 gap-10">
+    <section class="px-4 md:px-8 lg:px-12 py-6 md:py-12 overflow-hidden">
+      <div class="mx-auto grid lg:grid-cols-2 gap-10">
         <!-- LEFT TEXT CONTENT -->
         <div data-aos="fade-right" data-aos-delay="150">
           <p class="text-sm text-primary font-semibold flex items-center gap-2">
@@ -792,7 +1692,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="px-3 py-6 md:py-12 overflow-hidden">
+    <section class="px-4 md:px-8 lg:px-12 py-8 md:py-12 overflow-hidden">
       <!-- Heading -->
       <div
         data-aos="zoom-in"
@@ -814,7 +1714,7 @@
       </div>
 
       <!-- Slider Wrapper -->
-      <div class="relative max-w-6xl mx-auto mt-10">
+      <div class="relative max-w-6xl mx-auto mt-10 overflow-x-hidden px-2 py-2">
         <!-- Controls -->
         <div class="flex justify-end gap-4 my-8">
           <button
@@ -935,7 +1835,10 @@
     </section>
 
     <!-- Happy Client -->
-    <section id="work" class="px-3 py-8 md:py-20 scroll-mt-20 overflow-hidden">
+    <section
+      id="work"
+      class="px-4 md:px-8 lg:px-12 py-8 md:py-20 scroll-mt-20 overflow-hidden"
+    >
       <div class="mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
         <!-- LEFT CONTENT -->
         <div>
@@ -1064,7 +1967,9 @@
     </section>
 
     <!-- Have a Project?  -->
-    <section class="px-3 py-12 bg-primary/20 overflow-hidden w-full">
+    <section
+      class="px-4 md:px-8 lg:px-12 py-8 md:py-12 bg-primary/20 overflow-hidden w-full"
+    >
       <div class="w-full flex flex-wrap items-center justify-between gap-10">
         <div class="max-w-2xl w-full">
           <h2 class="text-2xl sm:text-4xl font-bold">Have a Project?</h2>
