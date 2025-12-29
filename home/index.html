@@ -1090,10 +1090,12 @@
       </p>
 
       <!-- Grid -->
-      <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <div class="grid md:grid-cols-3 gap-8 mt-12 grid-port">
         <!-- CARD TEMPLATE (Repeat 6 times with different content) -->
         <!-- Card 1 -->
-        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+        <div
+          class="relative group rounded-xl overflow-hidden shadow-lg port-card"
+        >
           <img
             src="../assets/d1.webp"
             alt="d1"
@@ -1121,7 +1123,9 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+        <div
+          class="relative group rounded-xl overflow-hidden shadow-lg port-card"
+        >
           <img
             src="../assets/d2.webp"
             alt="d2"
@@ -1146,7 +1150,9 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+        <div
+          class="relative group rounded-xl overflow-hidden shadow-lg port-card"
+        >
           <img
             src="../assets/d3.webp"
             alt="d3"
@@ -1171,7 +1177,9 @@
         </div>
 
         <!-- Card 4 -->
-        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+        <div
+          class="relative group rounded-xl overflow-hidden shadow-lg port-card"
+        >
           <img
             src="../assets/d4.webp"
             alt="d4"
@@ -1196,7 +1204,9 @@
         </div>
 
         <!-- Card 5 -->
-        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+        <div
+          class="relative group rounded-xl overflow-hidden shadow-lg port-card"
+        >
           <img
             src="../assets/d5.webp"
             alt="d5"
@@ -1221,7 +1231,9 @@
         </div>
 
         <!-- Card 6 -->
-        <div class="relative group rounded-xl overflow-hidden shadow-lg">
+        <div
+          class="relative group rounded-xl overflow-hidden shadow-lg port-card"
+        >
           <img
             src="../assets/d6.webp"
             alt="d6"
@@ -1246,6 +1258,19 @@
         </div>
       </div>
     </section>
+
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".port-card", {
+        scrollTrigger: { trigger: ".grid-port", start: "top 80%" },
+        y: 180,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.25,
+        ease: "power4.out",
+      });
+    </script>
 
     <!-- Popup Modal -->
     <div id="portfolioModal" class="hidden">
@@ -1273,13 +1298,13 @@
 
     <!-- blog -->
     <section
-      class="py-6 lg:py-12 bg-white px-4 md:px-8 lg:px-12 overflow-hidden"
+      class="py-6 lg:py-12 bg-white px-4 md:px-8 lg:px-12 overflow-hidden blog-section"
     >
       <!-- Header -->
       <div class="text-center mb-16 blog-header">
         <p class="text-[#ff4a17] font-semibold mb-2 blog-para">From My Blog</p>
         <h2
-          class="text-3xl md:text-4xl lg:text-5xl leading-tight font-bold blog-title"
+          class="text-3xl md:text-4xl lg:text-4xl leading-tight font-bold blog-title"
         >
           Our Recent Updates, Blog, Tips,<br />
           Tricks & More
@@ -1302,8 +1327,8 @@
             <div
               class="absolute top-5 right-5 bg-[#20c563] text-white px-4 py-3 rounded-xl text-center font-bold leading-none"
             >
-              <div class="text-lg">23</div>
-              <div class="text-xs font-medium">Dec</div>
+              <div class="text-lg">13</div>
+              <div class="text-xs font-medium">Nov</div>
             </div>
           </div>
 
@@ -1356,8 +1381,8 @@
             <div
               class="absolute top-5 right-5 bg-[#20c563] text-white px-4 py-3 rounded-xl text-center font-bold leading-none"
             >
-              <div class="text-lg">23</div>
-              <div class="text-xs font-medium">Dec</div>
+              <div class="text-lg">07</div>
+              <div class="text-xs font-medium">Jan</div>
             </div>
           </div>
 
