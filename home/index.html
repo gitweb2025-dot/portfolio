@@ -539,8 +539,8 @@
             organizational
           </p>
 
-          <div class="grid lg:grid-cols-2 gap-6 mt-10 services-cards">
-            <div class="service-card shadow rounded-xl p-6">
+          <div class="grid lg:grid-cols-2 gap-6 mt-10">
+            <div class="service-cards shadow rounded-xl p-6">
               <div
                 class="service-icon w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mb-4"
               >
@@ -554,7 +554,7 @@
             </div>
 
             <div
-              class="service-card border border-primary rounded-xl p-6 bg-gray-50"
+              class="service-cards border border-primary rounded-xl p-6 bg-gray-50"
             >
               <div
                 class="service-icon w-12 h-12 bg-primary text-white flex items-center justify-center rounded-full mb-4"
@@ -601,11 +601,11 @@
         .from(".about-label", { y: 20, opacity: 0, duration: 0.5 }, "-=.4")
         .from(".about-title", { y: 40, opacity: 0, duration: 0.9 }, "-=.3")
         .from(".about-desc", { y: 30, opacity: 0, duration: 0.7 }, "-=.4")
-        // .from(
-        //   ".service-card",
-        //   { y: 40, opacity: 0, duration: 0.8, stagger: 0.2 },
-        //   "-=.4"
-        // )
+        .from(
+          ".service-cards",
+          { y: 40, opacity: 0, duration: 0.8, stagger: 0.2 },
+          "-=.4"
+        )
         .from(".about-btn", { y: 20, opacity: 0, duration: 0.6 }, "-=.3");
 
       gsap.to(".glow-circle", {
@@ -614,20 +614,6 @@
         yoyo: true,
         duration: 4,
         ease: "sine.inOut",
-      });
-    </script>
-
-    <script>
-      gsap.from(".service-card", {
-        scrollTrigger: {
-          trigger: ".services-cards",
-          start: "top 75%",
-          toggleActions: "play reverse play reverse",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
       });
     </script>
 
