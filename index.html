@@ -317,38 +317,7 @@
     <main
       class="relative py-8 px-4 md:px-8 lg:px-12 overflow-hidden bg-[#071a2f]"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-        <!-- IMAGE SIDE -->
-        <div class="relative flex justify-center items-center">
-          <!-- Orange Shape -->
-          <div
-            class="absolute w-[420px] h-[420px] bg-orange-500 rotate-45 rounded-3xl"
-          ></div>
-
-          <!-- Image -->
-          <div class="relative z-10">
-            <img
-              src="./assets/home1.webp"
-              class="w-[400px] h-[500px] object-cover rounded-2xl shadow-2xl hero-photo"
-            />
-          </div>
-
-          <!-- Stats -->
-          <div
-            class="absolute top-16 left-6 bg-white px-6 py-3 rounded-xl shadow-xl stat"
-          >
-            <p class="text-orange-500 text-2xl font-bold">5K+</p>
-            <p class="text-xs font-semibold">TOTAL PROJECTS</p>
-          </div>
-
-          <div
-            class="absolute bottom-20 right-8 bg-white px-6 py-3 rounded-xl z-20 shadow-xl stat"
-          >
-            <p class="text-orange-500 text-2xl font-bold">200+</p>
-            <p class="text-xs font-semibold">WORLDWIDE CLIENTS</p>
-          </div>
-        </div>
-
+      <div class="grid grid-cols-1 md:grid-cols-2 md:gap-12">
         <!-- TEXT SIDE -->
         <div
           class="text-white flex flex-col justify-center space-y-6 relative z-10"
@@ -386,6 +355,37 @@
                 CONTACT ME
               </a>
             </div>
+          </div>
+        </div>
+
+        <!-- IMAGE SIDE -->
+        <div class="relative flex justify-center items-center">
+          <!-- Orange Shape -->
+          <div
+            class="absolute w-[420px] h-[420px] bg-orange-500 rotate-45 rounded-3xl bg-rect"
+          ></div>
+
+          <!-- Image -->
+          <div class="relative z-10">
+            <img
+              src="./assets/home1.webp"
+              class="w-[400px] h-[500px] object-cover rounded-2xl shadow-2xl hero-photo"
+            />
+          </div>
+
+          <!-- Stats -->
+          <div
+            class="absolute top-16 left-6 bg-white px-6 py-3 rounded-xl shadow-xl stat"
+          >
+            <p class="text-orange-500 text-2xl font-bold">5K+</p>
+            <p class="text-xs font-semibold">TOTAL PROJECTS</p>
+          </div>
+
+          <div
+            class="absolute bottom-20 right-8 bg-white px-6 py-3 rounded-xl z-20 shadow-xl stat"
+          >
+            <p class="text-orange-500 text-2xl font-bold">200+</p>
+            <p class="text-xs font-semibold">WORLDWIDE CLIENTS</p>
           </div>
         </div>
       </div>
@@ -500,6 +500,15 @@
             duration: 1.2,
           },
           "-=.9"
+        )
+        .from(
+          ".bg-rect",
+          {
+            scale: 0.7,
+            opacity: 0,
+            duration: 0.9,
+          },
+          "-=.4"
         )
         .from(
           ".stat",
